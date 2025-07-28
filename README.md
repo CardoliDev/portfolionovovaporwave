@@ -1,299 +1,163 @@
-# 🎯 Portfólio Cyberpunk - Front-End Developer
+# Portfólio Cyberpunk - Desenvolvedor Front-End
 
-Um portfólio pessoal moderno e performático com temática cyberpunk, desenvolvido com as melhores práticas de front-end.
+Um portfólio pessoal com temática cyberpunk, desenvolvido com **Bootstrap 5** para responsividade e CSS personalizado para cores e efeitos visuais.
 
-## ✨ Características
+## 🚀 Características
 
-- 🎨 **Design Cyberpunk**: Cores neon, efeitos de luz e gradientes modernos
-- 📱 **Totalmente Responsivo**: Funciona perfeitamente em todos os dispositivos
-- ⚡ **Performance Otimizada**: Lazy loading, compressão e otimizações
-- 🎭 **Animações Fluidas**: GSAP, ScrollReveal, AOS e Typed.js
-- 🌙 **Modo Claro/Escuro**: Toggle de tema com persistência
-- 📧 **Formulário Funcional**: Validação e notificações
-- ♿ **Acessível**: Atributos ARIA e navegação por teclado
+- **Design Cyberpunk**: Interface futurista com cores neon e efeitos visuais
+- **Totalmente Responsivo**: Utiliza Bootstrap 5 para adaptação em todos os dispositivos
+- **Animações Fluidas**: Efeitos de hover e transições suaves
+- **Carrossel de Projetos**: Apresentação interativa dos trabalhos
+- **Barras de Progresso**: Visualização das habilidades técnicas
+- **Formulário de Contato**: Integração completa
+- **Tema Escuro/Claro**: Alternância entre modos de visualização
+- **Internacionalização**: Suporte a múltiplos idiomas
 
 ## 🛠️ Tecnologias Utilizadas
 
-### Front-End
-- **HTML5** - Estrutura semântica
-- **CSS3** - Estilos modernos com CSS Variables
-- **JavaScript ES6+** - Funcionalidades interativas
-- **Bootstrap 5** - Framework responsivo
+### Framework CSS
+- **Bootstrap 5.3.2**: Sistema de grid responsivo e componentes
+- **CSS Custom Properties**: Variáveis CSS para cores e efeitos
+- **CSS Grid & Flexbox**: Layouts modernos
 
-### Bibliotecas de Animação
-- **GSAP** - Animações complexas e suaves
-- **ScrollReveal** - Efeitos ao rolar
-- **Typed.js** - Texto digitado animado
-- **AOS** - Animate On Scroll
+### JavaScript
+- **GSAP**: Animações avançadas
+- **ScrollTrigger**: Animações baseadas em scroll
+- **Typed.js**: Efeito de digitação
+- **AOS**: Animações on scroll
+- **ScrollReveal**: Revelação de elementos
 
-### Ícones e Fontes
-- **Font Awesome** - Ícones vetoriais
-- **Google Fonts** - Orbitron, Share Tech Mono, Rajdhani
+### Bibliotecas
+- **Font Awesome**: Ícones
+- **Google Fonts**: Tipografia (Orbitron, Share Tech Mono, Rajdhani)
 
-## 🚀 Instalação e Uso
+## 📁 Estrutura do Projeto
 
-### 1. Clone o Repositório
-```bash
-git clone https://github.com/seu-usuario/portfolio-cyberpunk.git
-cd portfolio-cyberpunk
+```
+portfolionovovaporwave/
+├── assets/
+│   ├── cv-example.md
+│   └── README.md
+├── css/
+│   └── style.css          # CSS personalizado (cores e efeitos)
+├── js/
+│   ├── i18n.js           # Internacionalização
+│   ├── main.js           # JavaScript principal
+│   └── scrolltrigger-config.js
+├── index.html            # Página principal
+├── package.json
+├── README.md
+└── TRANSLATIONS.md
 ```
 
-### 2. Personalização
+## 🎨 Sistema de Cores
 
-#### Editar Informações Pessoais
-Abra o arquivo `index.html` e edite:
+### Cores Principais (Cyberpunk)
+- **Primary**: `#00ffff` (Ciano neon)
+- **Secondary**: `#ff00ff` (Magenta neon)
+- **Accent**: `#00ff00` (Verde neon)
+- **Warning**: `#ffff00` (Amarelo neon)
+- **Danger**: `#ff0000` (Vermelho neon)
 
-```html
-<!-- Seção Hero -->
-<h1 class="hero-title">
-    <span class="glitch-text" data-text="SEU NOME">SEU NOME</span>
-</h1>
+### Cores de Fundo
+- **Primary**: `#0a0a0a` (Preto profundo)
+- **Secondary**: `#1a1a1a` (Cinza escuro)
+- **Tertiary**: `#2a2a2a` (Cinza médio)
 
-<!-- Seção Sobre -->
-<p class="about-text">
-    Sua bio personalizada aqui...
-</p>
+## 🔧 Instalação e Uso
 
-<!-- Estatísticas -->
-<div class="stat-number">50+</div>
-<div class="stat-label">Projetos Concluídos</div>
-```
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/portfolionovovaporwave.git
+   cd portfolionovovaporwave
+   ```
 
-#### Editar Projetos
-Na seção de projetos, atualize:
+2. **Abra o arquivo HTML**
+   - Abra `index.html` em qualquer navegador moderno
+   - Ou use um servidor local:
+   ```bash
+   python -m http.server 8000
+   # ou
+   npx serve .
+   ```
 
-```html
-<div class="project-card">
-    <div class="project-image">
-        <img src="assets/seu-projeto.jpg" alt="Nome do Projeto">
-    </div>
-    <div class="project-content">
-        <h3 class="project-title">Nome do Projeto</h3>
-        <p class="project-description">Descrição do projeto...</p>
-        <div class="project-tech">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Node.js</span>
-        </div>
-    </div>
-</div>
-```
+## 📱 Responsividade
 
-#### Editar Habilidades
-Na seção de habilidades, ajuste as porcentagens:
+O projeto utiliza **Bootstrap 5** para responsividade, garantindo:
 
-```html
-<div class="skill-item">
-    <div class="skill-info">
-        <span class="skill-name">HTML5 & CSS3</span>
-        <span class="skill-percentage">95%</span>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-progress" data-width="95"></div>
-    </div>
-</div>
-```
+- **Mobile First**: Design otimizado para dispositivos móveis
+- **Breakpoints**: 
+  - `sm`: ≥576px
+  - `md`: ≥768px
+  - `lg`: ≥992px
+  - `xl`: ≥1200px
+  - `xxl`: ≥1400px
+- **Grid System**: Sistema de 12 colunas flexível
+- **Componentes Responsivos**: Navegação, carrossel, formulários
 
-#### Editar Contato
-Atualize as informações de contato:
+## 🎯 Funcionalidades
 
-```html
-<div class="contact-item">
-    <div class="contact-icon">
-        <i class="fas fa-envelope"></i>
-    </div>
-    <div class="contact-details">
-        <h4>Email</h4>
-        <p>seu.email@exemplo.com</p>
-    </div>
-</div>
-```
+### Seções Principais
+1. **Hero Section**: Apresentação com efeitos de glitch
+2. **Sobre**: Informações pessoais e estatísticas
+3. **Projetos**: Carrossel interativo de trabalhos
+4. **Habilidades**: Barras de progresso animadas
+5. **Contato**: Formulário e informações de contato
 
-### 3. Adicionar Imagens
+### Efeitos Visuais
+- **Glitch Effect**: Texto com efeito de distorção
+- **Neon Glow**: Sombras luminosas
+- **Hover Animations**: Transições suaves
+- **Scroll Animations**: Animações baseadas em scroll
+- **Typing Effect**: Efeito de digitação
 
-1. Coloque sua foto de perfil em `assets/profile.jpg`
-2. Adicione screenshots dos projetos em `assets/project1.jpg`, `assets/project2.jpg`, etc.
-3. Crie um favicon personalizado em `assets/favicon.ico`
+## 🎨 Personalização
 
-### 4. Configurar Links Sociais
-
-Edite os links das redes sociais no HTML:
-
-```html
-<div class="social-links">
-    <a href="https://github.com/seu-usuario" class="social-link" target="_blank">
-        <i class="fab fa-github"></i>
-    </a>
-    <a href="https://linkedin.com/in/seu-usuario" class="social-link" target="_blank">
-        <i class="fab fa-linkedin"></i>
-    </a>
-</div>
-```
-
-### 5. Configurar Formulário de Contato
-
-Para integrar o formulário com serviços reais, edite o arquivo `js/main.js`:
-
-```javascript
-// Exemplo com EmailJS
-emailjs.send('service_id', 'template_id', {
-    name: data.name,
-    email: data.email,
-    subject: data.subject,
-    message: data.message
-});
-
-// Exemplo com Formspree
-fetch('https://formspree.io/f/seu-form-id', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-});
-```
-
-## 🎨 Personalização Avançada
-
-### Cores Cyberpunk
+### Cores
 Edite as variáveis CSS em `css/style.css`:
 
 ```css
 :root {
-    --primary-color: #00ffff;    /* Ciano */
-    --secondary-color: #ff00ff;  /* Magenta */
-    --accent-color: #00ff00;     /* Verde */
-    --bg-primary: #0a0a0a;       /* Preto */
-    --bg-secondary: #1a1a1a;     /* Cinza escuro */
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --accent-color: #00ff00;
+    /* ... outras cores */
 }
 ```
 
-### Animações
-Ajuste as animações GSAP em `js/main.js`:
+### Conteúdo
+- **Informações pessoais**: Edite o HTML diretamente
+- **Projetos**: Adicione/remova itens no carrossel
+- **Habilidades**: Ajuste as porcentagens nas barras de progresso
+- **Contato**: Atualize links e informações
 
-```javascript
-// Velocidade das animações
-gsap.from('.hero-title', {
-    duration: 2,        // Duração em segundos
-    y: 100,            // Movimento vertical
-    opacity: 0,        // Transparência inicial
-    ease: 'power3.out' // Tipo de easing
-});
-```
+## 🌐 Internacionalização
 
-### Efeitos de Glitch
-Personalize o efeito glitch no título:
+O projeto suporta múltiplos idiomas através do arquivo `js/i18n.js`. Para adicionar um novo idioma:
 
-```css
-.glitch-text::before {
-    animation: glitch-1 2s infinite; /* Frequência do glitch */
-    color: var(--secondary-color);
-}
-```
-
-## 📱 Responsividade
-
-O portfólio é totalmente responsivo com breakpoints:
-
-- **Desktop**: > 992px
-- **Tablet**: 768px - 991px
-- **Mobile**: < 767px
-
-## ⚡ Otimizações de Performance
-
-### Implementadas
-- Lazy loading de imagens
-- Minificação de CSS/JS (recomendado)
-- Preload de recursos críticos
-- Debounce e throttle em eventos
-- Intersection Observer para animações
-
-### Recomendadas
-```bash
-# Minificar CSS
-npm install -g clean-css-cli
-cleancss -o css/style.min.css css/style.css
-
-# Minificar JS
-npm install -g uglify-js
-uglifyjs js/main.js -o js/main.min.js
-```
-
-## 🌐 Deploy
-
-### GitHub Pages
-1. Faça push para o repositório
-2. Vá em Settings > Pages
-3. Selecione a branch main
-4. Acesse o link gerado
-
-### Netlify
-1. Conecte seu repositório GitHub
-2. Configure o build (não necessário para sites estáticos)
-3. Deploy automático
-
-### Vercel
-1. Importe o projeto do GitHub
-2. Deploy automático
-3. Domínio personalizado opcional
-
-## 🔧 Configurações Adicionais
-
-### SEO
-Edite as meta tags no `<head>`:
-
-```html
-<meta name="description" content="Portfólio de desenvolvedor front-end com foco em experiências digitais únicas">
-<meta name="keywords" content="front-end, developer, cyberpunk, portfolio">
-<meta name="author" content="Seu Nome">
-```
-
-### Analytics
-Adicione Google Analytics:
-
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>
-```
-
-## 🐛 Solução de Problemas
-
-### Animações não funcionam
-- Verifique se todas as bibliotecas estão carregadas
-- Confirme se o JavaScript não tem erros no console
-
-### Imagens não carregam
-- Verifique os caminhos das imagens
-- Confirme se os arquivos existem na pasta `assets/`
-
-### Formulário não envia
-- Configure corretamente o serviço de email
-- Verifique a validação JavaScript
+1. Adicione as traduções no objeto `translations`
+2. Crie o botão de idioma no HTML
+3. Implemente a lógica de troca
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e distribuir.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 🤝 Contribuição
 
-Contribuições são bem-vindas! Sinta-se livre para:
+Contribuições são bem-vindas! Para contribuir:
 
-1. Fazer um fork do projeto
-2. Criar uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abrir um Pull Request
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-## 📞 Suporte
+## 📞 Contato
 
-Se você tiver dúvidas ou problemas:
-
-- Abra uma issue no GitHub
-- Entre em contato através do formulário do site
-- Consulte a documentação das bibliotecas utilizadas
+- **Email**: matcardolidev@gmail.com
+- **WhatsApp**: (83) 98608-7039
+- **Localização**: João Pessoa, Brasil
 
 ---
 

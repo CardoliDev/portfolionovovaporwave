@@ -56,7 +56,7 @@ gsap.from('.stat-item', {
 
 // ===== ANIMAÇÕES DE PROJETOS =====
 
-// Animação do carrossel de projetos
+// Animação do container do carrossel de projetos (apenas o container, não os cards)
 gsap.from('.projects-carousel-container', {
     scrollTrigger: {
         trigger: '.projects-carousel-container',
@@ -70,21 +70,10 @@ gsap.from('.projects-carousel-container', {
     ease: 'power3.out'
 });
 
-// Animação dos cards de projeto no carrossel
-gsap.from('.carousel-item .project-card', {
-    scrollTrigger: {
-        trigger: '.carousel-item',
-        start: 'top 85%',
-        end: 'bottom 15%',
-        toggleActions: 'play none none reverse'
-    },
-    duration: 1,
-    scale: 0.8,
-    opacity: 0,
-    ease: 'back.out(1.7)'
-});
+// Removida a animação problemática dos cards individuais do carrossel
+// Isso estava causando conflitos com o Bootstrap Carousel
 
-// Animação quando o carrossel muda de slide
+// Animação suave quando o carrossel muda de slide (apenas para o card ativo)
 document.addEventListener('DOMContentLoaded', () => {
     const carousel = document.getElementById('projectsCarousel');
     if (carousel) {
@@ -93,21 +82,40 @@ document.addEventListener('DOMContentLoaded', () => {
             if (activeItem) {
                 const projectCard = activeItem.querySelector('.project-card');
                 if (projectCard) {
+                    // Reset do card para estado inicial
+                    gsap.set(projectCard, {
+                        scale: 1,
+                        opacity: 1
+                    });
+                    
+                    // Pequena animação de entrada suave
                     gsap.fromTo(projectCard, 
                         {
-                            scale: 0.9,
-                            opacity: 0.7
+                            scale: 0.95,
+                            opacity: 0.8
                         },
                         {
                             scale: 1,
                             opacity: 1,
-                            duration: 0.6,
+                            duration: 0.4,
                             ease: 'power2.out'
                         }
                     );
                 }
             }
         });
+        
+        // Garantir que o primeiro slide esteja visível
+        const firstSlide = carousel.querySelector('.carousel-item.active');
+        if (firstSlide) {
+            const firstCard = firstSlide.querySelector('.project-card');
+            if (firstCard) {
+                gsap.set(firstCard, {
+                    scale: 1,
+                    opacity: 1
+                });
+            }
+        }
     }
 });
 
@@ -232,37 +240,42 @@ gsap.to('.navbar', {
 
 // ===== ANIMAÇÕES DE HOVER =====
 
-// Efeito de hover nos cards de projeto
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-            duration: 0.5,
-            scale: 1.01,
-            y: -10,
-            ease: 'power2.out'
-        });
-        
-        // Adicionar efeito de brilho
-        gsap.to(card, {
-            duration: 0.3,
-            boxShadow: '0 15px 30px rgba(0, 255, 255, 0.3), 0 0 15px rgba(0, 255, 255, 0.2)',
-            ease: 'power2.out'
-        });
-    });
+// Efeito de hover nos cards de projeto (apenas para cards fora do carrossel)
+document.addEventListener('DOMContentLoaded', () => {
+    // Selecionar apenas cards que não estão no carrossel
+    const projectCards = document.querySelectorAll('.project-card:not(.carousel-item .project-card)');
     
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-            duration: 0.5,
-            scale: 1,
-            y: 0,
-            ease: 'power2.out'
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                duration: 0.5,
+                scale: 1.01,
+                y: -10,
+                ease: 'power2.out'
+            });
+            
+            // Adicionar efeito de brilho
+            gsap.to(card, {
+                duration: 0.3,
+                boxShadow: '0 15px 30px rgba(0, 255, 255, 0.3), 0 0 15px rgba(0, 255, 255, 0.2)',
+                ease: 'power2.out'
+            });
         });
         
-        // Remover efeito de brilho
-        gsap.to(card, {
-            duration: 0.3,
-            boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)',
-            ease: 'power2.out'
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                duration: 0.5,
+                scale: 1,
+                y: 0,
+                ease: 'power2.out'
+            });
+            
+            // Remover efeito de brilho
+            gsap.to(card, {
+                duration: 0.3,
+                boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)',
+                ease: 'power2.out'
+            });
         });
     });
 });
