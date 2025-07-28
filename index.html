@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Cyberpunk - Desenvolvedor Front-End</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Portfólio pessoal de desenvolvedor front-end com temática cyberpunk">
+    <meta name="keywords" content="front-end, developer, cyberpunk, portfolio, web development">
+    <meta name="author" content="Seu Nome">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Google Fonts - Tipografia Futurista -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loader Animado -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="cyber-spinner"></div>
+            <div class="loader-text">
+                <span class="typed-text"></span>
+                <span class="cursor">|</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span class="brand-text">Cardoli</span>
+                <span class="brand-glow">Dev</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-i18n="nav.home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre" data-i18n="nav.about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projetos" data-i18n="nav.projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato" data-i18n="nav.contact">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-primary theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <div class="cyber-grid"></div>
+            <div class="neon-lines"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="hero-content" data-aos="fade-up">
+                        <h1 class="hero-title">
+                            <span class="glitch-text" data-text="SEU NOME">Matheus Cardoso</span>
+                        </h1>
+                        <div class="hero-subtitle">
+                            <span class="typed-text"></span>
+                        </div>
+                        <p class="hero-description" data-i18n="hero.description">
+                            Transformando ideias em experiências digitais imersivas
+                        </p>
+                        
+                        <div class="hero-buttons">
+                            <a href="#contato" class="btn btn-primary btn-lg me-3" data-i18n="hero.buttons.contact">
+                                <i class="fas fa-rocket"></i> Vamos Conversar
+                            </a>
+                            <a href="assets/cv.pdf" class="btn btn-outline-primary btn-lg" download data-i18n="hero.buttons.download">
+                                <i class="fas fa-download"></i> Download CV
+                            </a>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-content">
+                        <h2 class="section-title" data-i18n="about.title"></h2>
+                        <div class="section-subtitle" data-i18n="about.subtitle">Quem sou eu</div>
+                        
+                        <p class="about-text" data-i18n="about.text1">
+                            Sou um desenvolvedor front-end apaixonado por criar experiências digitais únicas e inovadoras. 
+                            Com expertise em tecnologias modernas, transformo conceitos criativos em interfaces funcionais 
+                            e responsivas que cativam os usuários.
+                        </p>
+                        
+                        <p class="about-text" data-i18n="about.text2">
+                            Minha jornada no desenvolvimento web começou há mais de 3 anos, e desde então tenho trabalhado 
+                            em projetos desafiadores que me permitiram aprimorar minhas habilidades técnicas e criativas.
+                        </p>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label" data-i18n="about.stats.projects">Projetos Concluídos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1+</div>
+                                <div class="stat-label" data-i18n="about.stats.experience">Anos de Experiência</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label" data-i18n="about.stats.satisfaction">Satisfação do Cliente</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-image">
+                        <div class="image-container">
+                            <div class="cyber-frame">
+                                <img src="assets/profile.jpg" alt="Foto do desenvolvedor" class="profile-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="projects.title"></h2>
+                    <div class="section-subtitle" data-i18n="projects.subtitle">Meus trabalhos recentes</div>
+                </div>
+            </div>
+            
+            <div class="projects-carousel-container">
+                <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicadores -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    
+                    <!-- Slides -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="assets/project1.jpg" alt="Projeto 1" loading="lazy">
+                                            <div class="project-overlay">
+                                                <div class="project-links">
+                                                    <a href="#" class="project-link" target="_blank">
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                    </a>
+                                                    <a href="#" class="project-link" target="_blank">
+                                                        <i class="fab fa-github"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="project-content">
+                                            <h3 class="project-title">E-commerce Cyberpunk</h3>
+                                            <p class="project-description">
+                                                Plataforma de e-commerce com design cyberpunk, integração de pagamentos e sistema de gestão.
+                                            </p>
+                                            <div class="project-tech">
+                                                <span class="tech-tag">React</span>
+                                                <span class="tech-tag">Node.js</span>
+                                                <span class="tech-tag">MongoDB</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="assets/project2.jpg" alt="Projeto 2" loading="lazy">
+                                            <div class="project-overlay">
+                                                <div class="project-links">
+                                                    <a href="#" class="project-link" target="_blank">
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                    </a>
+                                                    <a href="#" class="project-link" target="_blank">
+                                                        <i class="fab fa-github"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="project-content">
+                                            <h3 class="project-title">Dashboard Analytics</h3>
+                                            <p class="project-description">
+                                                Dashboard interativo com visualizações de dados em tempo real e gráficos animados.
+                                            </p>
+                                            <div class="project-tech">
+                                                <span class="tech-tag">Vue.js</span>
+                                                <span class="tech-tag">D3.js</span>
+                                                <span class="tech-tag">Firebase</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-md-10">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="assets/project3.jpg" alt="Projeto 3" loading="lazy">
+                                            <div class="project-overlay">
+                                                <div class="project-links">
+                                                    <a href="#" class="project-link" target="_blank">
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                    </a>
+                                                    <a href="#" class="project-link" target="_blank">
+                                                        <i class="fab fa-github"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="project-content">
+                                            <h3 class="project-title">Game Interface</h3>
+                                            <p class="project-description">
+                                                Interface de jogo com elementos cyberpunk, animações fluidas e sistema de pontuação.
+                                            </p>
+                                            <div class="project-tech">
+                                                <span class="tech-tag">JavaScript</span>
+                                                <span class="tech-tag">Canvas API</span>
+                                                <span class="tech-tag">WebGL</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Técnicas -->
+    <section id="habilidades" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="skills.title"></h2>
+                    <div class="section-subtitle" data-i18n="skills.subtitle">Minhas competências</div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="skills-category">
+                        <h3 class="category-title" data-i18n="skills.frontend">Frontend</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML5 & CSS3</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript (ES6+)</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React.js</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Vue.js</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skills-category">
+                        <h3 class="category-title" data-i18n="skills.backend">Backend</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript (ES6+)</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">PostgreSQL</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Postman</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skills-category">
+                        <h3 class="category-title" data-i18n="skills.tools">Ferramentas & Outros</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Bootstrap</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">GSAP</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Figma</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="contact.title"></h2>
+                    <div class="section-subtitle" data-i18n="contact.subtitle">Vamos trabalhar juntos</div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h3 class="contact-title" data-i18n="contact.info.title">Informações de Contato</h3>
+                        <p class="contact-description" data-i18n="contact.info.description">
+                            Estou sempre aberto a novas oportunidades e projetos interessantes. 
+                            Entre em contato comigo para discutirmos como posso ajudar no seu projeto.
+                        </p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.info.email">Email</h4>
+                                <p><a href="mailto:matcardolidev@gmail.com" style="color: var(--text-secondary); text-decoration: none;">matcardolidev@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.info.phone">WhatsApp</h4>
+                                <p><a href="https://wa.me/5583986087039" target="_blank" style="color: var(--text-secondary); text-decoration: none;">(83)98608-7039</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.info.location">Localização</h4>
+                                <p data-i18n="contact.info.locationValue">João Pessoa, Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="name" name="name" data-i18n-attr="placeholder:contact.form.name" placeholder="Seu Nome" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email" name="email" data-i18n-attr="placeholder:contact.form.email" placeholder="Seu Email" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="subject" name="subject" data-i18n-attr="placeholder:contact.form.subject" placeholder="Assunto" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="message" name="message" rows="5" data-i18n-attr="placeholder:contact.form.message" placeholder="Sua Mensagem" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100" data-i18n="contact.form.send">
+                                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="back-to-top-container">
+        <button id="backToTop" class="back-to-top-btn debug" aria-label="Voltar ao topo">
+            <i class="fas fa-rocket"></i>
+        </button>
+    </div>
+    
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="footer-content">
+                        <p>&copy; 2024 <span class="brand-text">DEV</span><span class="brand-glow">CYBER</span>. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer-social">
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/scrolltrigger-config.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+</html> 
