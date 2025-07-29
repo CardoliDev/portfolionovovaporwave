@@ -249,6 +249,167 @@ body {
         radial-gradient(circle at 40% 40%, rgba(0, 255, 0, 0.05) 0%, transparent 50%);
 }
 
+/* ===== PARTÍCULAS SUTIS DA HERO SECTION ===== */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: particleFloat 8s infinite linear;
+    box-shadow: 0 0 4px rgba(0, 255, 255, 0.3);
+}
+
+.particle-1 {
+    width: 4px;
+    height: 4px;
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.particle-2 {
+    width: 3px;
+    height: 3px;
+    top: 35%;
+    left: 85%;
+    animation-delay: 2s;
+    animation-duration: 15s;
+}
+
+.particle-3 {
+    width: 5px;
+    height: 5px;
+    top: 60%;
+    left: 10%;
+    animation-delay: 4s;
+    animation-duration: 10s;
+}
+
+.particle-4 {
+    width: 2px;
+    height: 2px;
+    top: 75%;
+    left: 80%;
+    animation-delay: 1s;
+    animation-duration: 18s;
+}
+
+.particle-5 {
+    width: 4px;
+    height: 4px;
+    top: 45%;
+    left: 25%;
+    animation-delay: 3s;
+    animation-duration: 14s;
+}
+
+.particle-6 {
+    width: 3px;
+    height: 3px;
+    top: 25%;
+    left: 70%;
+    animation-delay: 5s;
+    animation-duration: 16s;
+}
+
+.particle-7 {
+    width: 2px;
+    height: 2px;
+    top: 80%;
+    left: 45%;
+    animation-delay: 2.5s;
+    animation-duration: 13s;
+}
+
+.particle-8 {
+    width: 4px;
+    height: 4px;
+    top: 15%;
+    left: 55%;
+    animation-delay: 1.5s;
+    animation-duration: 11s;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* Acessibilidade: reduzir movimento para usuários que preferem */
+@media (prefers-reduced-motion: reduce) {
+    .particle {
+        animation: none;
+        opacity: 0.1;
+    }
+    
+    .crystal-core {
+        animation: none;
+    }
+    
+    .crystal-facet {
+        animation: none;
+        opacity: 0.3;
+    }
+    
+    .edge {
+        animation: none;
+        opacity: 0.2;
+    }
+    
+    .core-glow {
+        animation: none;
+        opacity: 0.5;
+    }
+    
+    .data-particle {
+        animation: none;
+        opacity: 0.2;
+    }
+    
+    .energy-ring {
+        animation: none;
+        opacity: 0.3;
+    }
+    
+    .scan-line {
+        animation: none;
+        opacity: 0.3;
+    }
+    
+    .hologram-grid {
+        animation: none;
+        opacity: 0.2;
+    }
+    
+    .holo-particle {
+        animation: none;
+        opacity: 0.2;
+    }
+}
+
 .hero-content {
     text-align: center;
     z-index: 2;
@@ -491,9 +652,13 @@ body {
 
 .about-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 2rem;
+    /* Debug: garantir visibilidade */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: grid !important;
 }
 
 .stat-item {
@@ -502,6 +667,10 @@ body {
     border: 1px solid rgba(0, 255, 255, 0.2);
     background: rgba(0, 255, 255, 0.05);
     transition: var(--transition-fast);
+    /* Debug: garantir visibilidade */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
 }
 
 .stat-item:hover {
@@ -517,6 +686,9 @@ body {
     color: var(--primary-color);
     text-shadow: var(--shadow-neon);
     display: block;
+    /* Debug: garantir visibilidade */
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .stat-label {
@@ -525,6 +697,9 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 0.5rem;
+    /* Debug: garantir visibilidade */
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .about-image {
@@ -539,15 +714,516 @@ body {
 .cyber-frame {
     position: relative;
     padding: 10px;
-    background: var(--gradient-primary);
     clip-path: polygon(0 20px, 20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px));
 }
 
-.profile-img {
+/* ===== CRISTAL DE DADOS HOLOGRÁFICO ===== */
+.data-crystal-hologram {
     width: 300px;
     height: 300px;
-    object-fit: cover;
-    clip-path: polygon(0 20px, 20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.crystal-core {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    animation: crystalFloat 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+    transform: rotateX(20deg) rotateY(20deg);
+}
+
+.crystal-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(0px);
+}
+
+.crystal-facet {
+    position: absolute;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(255, 0, 255, 0.05) 50%, 
+        rgba(0, 255, 255, 0.1) 100%);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    animation: facetGlow 4s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.facet-1 {
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    left: 10px;
+    transform: rotateX(45deg) rotateY(45deg) translateZ(30px);
+    animation-delay: 0s;
+}
+
+.facet-2 {
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    right: 10px;
+    transform: rotateX(45deg) rotateY(-45deg) translateZ(30px);
+    animation-delay: 0.5s;
+}
+
+.facet-3 {
+    width: 60px;
+    height: 60px;
+    bottom: 10px;
+    left: 10px;
+    transform: rotateX(-45deg) rotateY(45deg) translateZ(30px);
+    animation-delay: 1s;
+}
+
+.facet-4 {
+    width: 60px;
+    height: 60px;
+    bottom: 10px;
+    right: 10px;
+    transform: rotateX(-45deg) rotateY(-45deg) translateZ(30px);
+    animation-delay: 1.5s;
+}
+
+.facet-5 {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) translateZ(40px);
+    animation-delay: 2s;
+}
+
+.facet-6 {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) translateZ(-40px);
+    animation-delay: 2.5s;
+}
+
+.facet-7 {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(90deg) rotateY(0deg) translateZ(40px);
+    animation-delay: 3s;
+}
+
+.facet-8 {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(-90deg) rotateY(0deg) translateZ(40px);
+    animation-delay: 3.5s;
+}
+
+.crystal-edges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+.edge {
+    position: absolute;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 255, 255, 0.4) 50%, 
+        transparent 100%);
+    animation: edgeGlow 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.edge-1 {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translate(-50%, -50%) translateZ(35px);
+    animation-delay: 0s;
+}
+
+.edge-2 {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotateY(90deg) translateZ(35px);
+    animation-delay: 0.5s;
+}
+
+.edge-3 {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotateX(90deg) translateZ(35px);
+    animation-delay: 1s;
+}
+
+.edge-4 {
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 2px;
+    transform: translate(-50%, -50%) translateZ(35px);
+    animation-delay: 1.5s;
+}
+
+.edge-5 {
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 2px;
+    transform: translate(-50%, -50%) rotateY(90deg) translateZ(35px);
+    animation-delay: 2s;
+}
+
+.edge-6 {
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 2px;
+    transform: translate(-50%, -50%) rotateX(90deg) translateZ(35px);
+    animation-delay: 2.5s;
+}
+
+.edge-7 {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg) translateZ(35px);
+    animation-delay: 0.3s;
+}
+
+.edge-8 {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotateX(-45deg) rotateY(45deg) translateZ(35px);
+    animation-delay: 0.8s;
+}
+
+.edge-9 {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotateX(45deg) rotateY(-45deg) translateZ(35px);
+    animation-delay: 1.3s;
+}
+
+.edge-10 {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotateX(-45deg) rotateY(-45deg) translateZ(35px);
+    animation-delay: 1.8s;
+}
+
+.edge-11 {
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 2px;
+    transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg) translateZ(35px);
+    animation-delay: 2.3s;
+}
+
+.edge-12 {
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 2px;
+    transform: translate(-50%, -50%) rotateX(-45deg) rotateY(-45deg) translateZ(35px);
+    animation-delay: 2.8s;
+}
+
+.crystal-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(50px);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+.core-glow {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, 
+        rgba(0, 255, 255, 0.9) 0%, 
+        rgba(255, 0, 255, 0.7) 40%, 
+        rgba(0, 255, 255, 0.4) 70%, 
+        transparent 100%);
+    border-radius: 50%;
+    animation: coreGlow 3s ease-in-out infinite;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 255, 0.6),
+        0 0 60px rgba(0, 255, 255, 0.4),
+        0 0 90px rgba(255, 0, 255, 0.3);
+    transform: translateZ(10px);
+}
+
+
+
+/* Efeitos holográficos do cristal */
+.hologram-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+.data-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.data-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, 
+        rgba(0, 255, 255, 0.8) 0%, 
+        rgba(0, 255, 255, 0.4) 70%, 
+        transparent 100%);
+    border-radius: 50%;
+    animation: dataParticleFloat 6s infinite linear;
+    transform: translateZ(60px);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.particle-1 {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.particle-2 {
+    top: 60%;
+    left: 80%;
+    animation-delay: 1s;
+}
+
+.particle-3 {
+    top: 80%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.particle-4 {
+    top: 30%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.particle-5 {
+    top: 70%;
+    left: 60%;
+    animation-delay: 4s;
+}
+
+.particle-6 {
+    top: 40%;
+    left: 40%;
+    animation-delay: 5s;
+}
+
+.particle-7 {
+    top: 10%;
+    left: 50%;
+    animation-delay: 1.5s;
+}
+
+.particle-8 {
+    top: 90%;
+    left: 50%;
+    animation-delay: 2.5s;
+}
+
+.energy-rings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+.energy-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 255, 255, 0.2) 20%, 
+        rgba(255, 0, 255, 0.3) 50%, 
+        rgba(0, 255, 255, 0.2) 80%, 
+        transparent 100%);
+    animation: energyRingRotate 10s linear infinite;
+    transform-style: preserve-3d;
+}
+
+.ring-1 {
+    width: 120px;
+    height: 120px;
+    animation-delay: 0s;
+    transform: translate(-50%, -50%) rotateX(60deg) translateZ(40px);
+}
+
+.ring-2 {
+    width: 140px;
+    height: 140px;
+    animation-delay: 3s;
+    transform: translate(-50%, -50%) rotateY(60deg) translateZ(50px);
+}
+
+.ring-3 {
+    width: 160px;
+    height: 160px;
+    animation-delay: 6s;
+    transform: translate(-50%, -50%) rotateX(-60deg) translateZ(60px);
+}
+
+
+
+/* Animações do Cristal de Dados */
+@keyframes crystalFloat {
+    0%, 100% { 
+        transform: rotateX(20deg) rotateY(20deg) translateY(0px); 
+    }
+    25% { 
+        transform: rotateX(25deg) rotateY(15deg) translateY(-10px); 
+    }
+    50% { 
+        transform: rotateX(20deg) rotateY(10deg) translateY(-5px); 
+    }
+    75% { 
+        transform: rotateX(15deg) rotateY(25deg) translateY(-15px); 
+    }
+}
+
+@keyframes facetGlow {
+    0%, 100% { 
+        opacity: 0.3;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes edgeGlow {
+    0%, 100% { 
+        opacity: 0.2;
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.1);
+    }
+    50% { 
+        opacity: 0.6;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+}
+
+@keyframes coreGlow {
+    0%, 100% { 
+        transform: translateZ(10px) scale(1);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateZ(15px) scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+@keyframes dataParticleFloat {
+    0% {
+        transform: translateZ(60px) translateY(0px) translateX(0px);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateZ(60px) translateY(-100px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+@keyframes energyRingRotate {
+    0% { 
+        transform: translate(-50%, -50%) rotateZ(0deg); 
+    }
+    100% { 
+        transform: translate(-50%, -50%) rotateZ(360deg); 
+    }
+}
+
+@keyframes scanLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes holoParticleFloat {
+    0% {
+        transform: translateY(100px) translateX(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) translateX(30px);
+        opacity: 0;
+    }
 }
 
 /* ===== PROJETOS ===== */
@@ -1170,9 +1846,35 @@ body {
         gap: 1rem;
     }
     
-    .profile-img {
+    /* Ajustar partículas em mobile */
+    .particle {
+        opacity: 0.3;
+    }
+    
+    .particle-1, .particle-2, .particle-3, .particle-4,
+    .particle-5, .particle-6, .particle-7, .particle-8 {
+        width: 3px;
+        height: 3px;
+    }
+    
+    .data-crystal-hologram {
         width: 250px;
         height: 250px;
+    }
+    
+    .crystal-core {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .crystal-center {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .crystal-facet {
+        width: 50px;
+        height: 50px;
     }
     
     .hero-buttons {
@@ -1263,6 +1965,26 @@ body {
     
     .project-image {
         height: 200px;
+    }
+    
+    .data-crystal-hologram {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .crystal-core {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .crystal-center {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .crystal-facet {
+        width: 40px;
+        height: 40px;
     }
     
     .skills-category {

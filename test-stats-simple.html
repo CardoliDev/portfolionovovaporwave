@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Simples - Estatísticas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-family: 'Orbitron', monospace;
+        }
+        .debug-info {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">Teste Simples das Estatísticas</h1>
+        
+        <div class="debug-info">
+            <h3>Debug Info:</h3>
+            <p>✅ CSS carregado: <span id="css-status">Verificando...</span></p>
+            <p>✅ Variáveis CSS: <span id="css-vars-status">Verificando...</span></p>
+            <p>✅ Elementos criados: <span id="elements-status">Verificando...</span></p>
+        </div>
+        
+        <h2>Estatísticas da Seção "Sobre Mim":</h2>
+        <div class="about-stats">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projetos Concluídos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Anos de Experiência</div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <h3>Verificação Manual:</h3>
+            <ul>
+                <li>✅ HTML das estatísticas presente</li>
+                <li>✅ CSS das estatísticas carregado</li>
+                <li>✅ Classes corretas aplicadas</li>
+                <li>✅ Responsividade configurada</li>
+                <li>✅ Sem sistema i18n (teste limpo)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Verificação automática
+        document.addEventListener('DOMContentLoaded', function() {
+            const cssStatus = document.getElementById('css-status');
+            const cssVarsStatus = document.getElementById('css-vars-status');
+            const elementsStatus = document.getElementById('elements-status');
+            
+            // Verificar se CSS está carregado
+            const computedStyle = getComputedStyle(document.body);
+            if (computedStyle.getPropertyValue('--bg-primary')) {
+                cssStatus.textContent = '✅ Carregado';
+                cssVarsStatus.textContent = '✅ Funcionando';
+            } else {
+                cssStatus.textContent = '❌ Não carregado';
+                cssVarsStatus.textContent = '❌ Não funcionando';
+            }
+            
+            // Verificar elementos
+            const statItems = document.querySelectorAll('.stat-item');
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statLabels = document.querySelectorAll('.stat-label');
+            
+            if (statItems.length === 2 && statNumbers.length === 2 && statLabels.length === 2) {
+                elementsStatus.textContent = '✅ Todos presentes';
+            } else {
+                elementsStatus.textContent = `❌ Faltando elementos (${statItems.length}/${statNumbers.length}/${statLabels.length})`;
+            }
+            
+            console.log('Estatísticas encontradas:', {
+                statItems: statItems.length,
+                statNumbers: statNumbers.length,
+                statLabels: statLabels.length
+            });
+        });
+    </script>
+</body>
+</html> 
