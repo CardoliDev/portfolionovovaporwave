@@ -40,7 +40,6 @@ function ensureContentVisibility() {
                 element.style.visibility = 'visible';
                 element.style.opacity = '1';
                 element.style.display = 'block';
-                console.log(`Elemento ${selector} está visível:`, element);
             }
         });
     });
@@ -52,21 +51,24 @@ function ensureContentVisibility() {
             element.style.visibility = 'visible';
             element.style.opacity = '1';
             element.style.zIndex = '1';
-            console.log('Texto glitch está visível:', element);
         }
     });
-    
-    // Debug: verificar se os elementos existem
-    console.log('Hero title encontrado:', document.querySelector('.hero-title'));
-    console.log('Hero subtitle encontrado:', document.querySelector('.hero-subtitle'));
-    console.log('Hero description encontrado:', document.querySelector('.hero-description'));
-    console.log('Glitch text encontrado:', document.querySelector('.glitch-text'));
 }
 
 // Tornar funções globais
 window.ensureContentVisibility = ensureContentVisibility;
 window.initSmoothScroll = initSmoothScroll;
-window.testBackToTop = testBackToTop;
+
+// Função de debug para o botão back-to-top
+window.debugBackToTop = function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        backToTopBtn.classList.add('force-show');
+        console.log('Botão back-to-top forçado a ficar visível');
+    } else {
+        console.log('Botão back-to-top não encontrado');
+    }
+};
 
 // ===== LOADER ANIMADO =====
 function initLoader() {
@@ -472,10 +474,7 @@ function initSkillBars() {
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
     
-    console.log('Links encontrados:', links.length);
-    links.forEach(link => {
-        console.log('Link:', link.getAttribute('href'), link.textContent);
-    });
+
     
     links.forEach(link => {
         // Remover event listeners existentes para evitar duplicação
@@ -493,7 +492,7 @@ function smoothScrollHandler(e) {
     const targetId = this.getAttribute('href');
     const targetSection = document.querySelector(targetId);
     
-    console.log('Clicou no link:', targetId, 'Seção encontrada:', !!targetSection);
+
     
     if (targetSection) {
         const offsetTop = targetSection.offsetTop - 80; // Ajuste para navbar fixa
@@ -563,24 +562,19 @@ function initBackToTop() {
     const backToTopBtn = document.getElementById('backToTop');
     
     if (!backToTopBtn) {
-        console.log('Botão voltar ao topo não encontrado');
+        console.warn('Botão back-to-top não encontrado');
         return;
     }
     
-    console.log('Inicializando botão voltar ao topo');
-    
-    // Adicionar classe debug temporariamente para teste
-    backToTopBtn.classList.add('debug');
+    // Garantir que o botão seja visível inicialmente se necessário
+    backToTopBtn.style.display = 'flex';
     
     // Mostrar/ocultar botão baseado no scroll
     const handleScroll = () => {
-        console.log('Scroll position:', window.pageYOffset);
-        if (window.pageYOffset > 100) { // Reduzido para 100px para teste
+        if (window.pageYOffset > 100) {
             backToTopBtn.classList.add('show');
-            backToTopBtn.classList.remove('debug');
         } else {
             backToTopBtn.classList.remove('show');
-            backToTopBtn.classList.add('debug');
         }
     };
     
@@ -588,7 +582,6 @@ function initBackToTop() {
     
     // Scroll suave ao clicar no botão
     backToTopBtn.addEventListener('click', () => {
-        console.log('Clicou no botão voltar ao topo');
         
         // Animação do foguete decolando
         const rocketIcon = backToTopBtn.querySelector('i');
@@ -624,35 +617,13 @@ function initBackToTop() {
     // Verificar posição inicial
     handleScroll();
     
-    // Log adicional para debug
-    console.log('Botão voltar ao topo inicializado com sucesso');
-    console.log('Posição inicial do scroll:', window.pageYOffset);
+    // Verificação adicional após um delay
+    setTimeout(() => {
+        handleScroll();
+    }, 1000);
 }
 
-// Função de teste para o botão voltar ao topo
-function testBackToTop() {
-    console.log('=== TESTE DO BOTÃO VOLTAR AO TOPO ===');
-    
-    const backToTopBtn = document.getElementById('backToTop');
-    if (backToTopBtn) {
-        console.log('✅ Botão encontrado:', backToTopBtn);
-        console.log('Classes:', backToTopBtn.className);
-        console.log('Display:', window.getComputedStyle(backToTopBtn).display);
-        console.log('Visibility:', window.getComputedStyle(backToTopBtn).visibility);
-        console.log('Opacity:', window.getComputedStyle(backToTopBtn).opacity);
-        console.log('Position:', window.getComputedStyle(backToTopBtn).position);
-        console.log('Z-index:', window.getComputedStyle(backToTopBtn).zIndex);
-        
-        // Forçar visibilidade
-        backToTopBtn.style.opacity = '1';
-        backToTopBtn.style.visibility = 'visible';
-        backToTopBtn.style.display = 'flex';
-        
-        console.log('✅ Botão forçado a ficar visível');
-    } else {
-        console.log('❌ Botão NÃO encontrado');
-    }
-}
+
 
 // Função para criar partículas de fumaça do foguete
 function createRocketParticles(button) {
@@ -783,8 +754,6 @@ window.addEventListener('scroll', throttle(function() {
 
 // Inicializar efeitos adicionais após carregamento
 window.addEventListener('load', function() {
-    console.log('Página carregada, inicializando componentes...');
-    
     initHoverEffects();
     
     // Inicializar partículas apenas se não for mobile e não preferir movimento reduzido
@@ -799,61 +768,27 @@ window.addEventListener('load', function() {
     setTimeout(initSmoothScroll, 1500);
     
     // Inicializar botão voltar ao topo
-    console.log('Chamando initBackToTop...');
     initBackToTop();
     
-    // Verificação adicional após 2 segundos
+    // Verificação adicional do botão após carregamento
     setTimeout(() => {
         const backToTopBtn = document.getElementById('backToTop');
         if (backToTopBtn) {
-            console.log('Botão encontrado após 2s:', backToTopBtn);
-            console.log('Classes do botão:', backToTopBtn.className);
-            console.log('Estilo display:', window.getComputedStyle(backToTopBtn).display);
-            console.log('Estilo visibility:', window.getComputedStyle(backToTopBtn).visibility);
-            console.log('Estilo opacity:', window.getComputedStyle(backToTopBtn).opacity);
-        } else {
-            console.log('Botão NÃO encontrado após 2s');
+            // Forçar verificação de scroll
+            const handleScroll = () => {
+                if (window.pageYOffset > 100) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            };
+            handleScroll();
         }
     }, 2000);
 });
 
 // ===== CONFIGURAÇÕES DE PERFORMANCE =====
 
-// Lazy loading para imagens
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
 
-// Preload de recursos críticos
-function preloadCriticalResources() {
-    const criticalImages = [
-        'assets/profile.jpg',
-        'assets/project1.jpg',
-        'assets/project2.jpg',
-        'assets/project3.jpg'
-    ];
-    
-    criticalImages.forEach(src => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = src;
-        document.head.appendChild(link);
-    });
-}
 
-// Executar preload
-preloadCriticalResources(); 
+ 

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Botão Back-to-Top</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 200vh;
+        }
+        
+        .test-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .back-to-top-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .back-to-top-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border: 2px solid #00ffff;
+            border-radius: 50%;
+            color: #000;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .back-to-top-btn.show {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+        
+        .back-to-top-btn.force-show {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            display: flex !important;
+        }
+        
+        .back-to-top-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.6);
+        }
+        
+        .test-button {
+            background: #00ffff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .debug-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-content">
+        <h1>Teste do Botão Back-to-Top</h1>
+        
+        <div class="debug-info">
+            <h3>Debug Info:</h3>
+            <p>Scroll para baixo para ver o botão aparecer</p>
+            <p>Posição atual do scroll: <span id="scrollPosition">0</span>px</p>
+            <p>Botão encontrado: <span id="buttonFound">Verificando...</span></p>
+            <p>Classes do botão: <span id="buttonClasses">-</span></p>
+            <p>Display do botão: <span id="buttonDisplay">-</span></p>
+            <p>Visibility do botão: <span id="buttonVisibility">-</span></p>
+            <p>Opacity do botão: <span id="buttonOpacity">-</span></p>
+        </div>
+        
+        <button class="test-button" onclick="forceShowButton()">Forçar Visibilidade do Botão</button>
+        <button class="test-button" onclick="scrollToBottom()">Rolar para Baixo</button>
+        <button class="test-button" onclick="scrollToTop()">Rolar para Cima</button>
+        
+        <div style="height: 1000px; background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);">
+            <h2>Conteúdo para Scroll</h2>
+            <p>Role para baixo para testar o botão back-to-top...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="back-to-top-container">
+        <button id="backToTop" class="back-to-top-btn" aria-label="Voltar ao topo">
+            <i class="fas fa-rocket"></i>
+        </button>
+    </div>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        // Função para inicializar o botão back-to-top
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            if (!backToTopBtn) {
+                console.warn('Botão back-to-top não encontrado');
+                document.getElementById('buttonFound').textContent = 'NÃO ENCONTRADO';
+                return;
+            }
+            
+            document.getElementById('buttonFound').textContent = 'ENCONTRADO';
+            
+            // Garantir que o botão seja visível inicialmente se necessário
+            backToTopBtn.style.display = 'flex';
+            
+            // Mostrar/ocultar botão baseado no scroll
+            const handleScroll = () => {
+                const scrollPos = window.pageYOffset;
+                document.getElementById('scrollPosition').textContent = scrollPos;
+                
+                if (scrollPos > 100) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+                
+                // Atualizar debug info
+                updateDebugInfo();
+            };
+            
+            window.addEventListener('scroll', handleScroll);
+            
+            // Scroll suave ao clicar no botão
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Verificar posição inicial
+            handleScroll();
+            
+            // Verificação adicional após um delay
+            setTimeout(() => {
+                handleScroll();
+            }, 1000);
+        }
+        
+        // Função para atualizar informações de debug
+        function updateDebugInfo() {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                const styles = window.getComputedStyle(backToTopBtn);
+                document.getElementById('buttonClasses').textContent = backToTopBtn.className;
+                document.getElementById('buttonDisplay').textContent = styles.display;
+                document.getElementById('buttonVisibility').textContent = styles.visibility;
+                document.getElementById('buttonOpacity').textContent = styles.opacity;
+            }
+        }
+        
+        // Função para forçar visibilidade do botão
+        function forceShowButton() {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                backToTopBtn.classList.add('force-show');
+                updateDebugInfo();
+                console.log('Botão forçado a ficar visível');
+            }
+        }
+        
+        // Função para rolar para baixo
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Função para rolar para cima
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Inicializar quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            initBackToTop();
+        });
+        
+        // Inicializar quando a página carregar
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const backToTopBtn = document.getElementById('backToTop');
+                if (backToTopBtn) {
+                    const handleScroll = () => {
+                        if (window.pageYOffset > 100) {
+                            backToTopBtn.classList.add('show');
+                        } else {
+                            backToTopBtn.classList.remove('show');
+                        }
+                        updateDebugInfo();
+                    };
+                    handleScroll();
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 

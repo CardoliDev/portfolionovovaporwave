@@ -407,6 +407,4 @@ window.carouselTransitions = {
     animateSlideElements,
     addGlowEffect,
     createCarouselParticles
-};
-
-console.log('Carousel transitions loaded successfully'); 
+}; 

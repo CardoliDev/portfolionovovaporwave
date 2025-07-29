@@ -149,8 +149,7 @@ document.addEventListener('visibilitychange', function() {
     }
 });
 
-// Debug: Log para verificar se o carrossel está funcionando
-console.log('Carousel fix loaded successfully');
+
 
 // Exportar funções para uso global (se necessário)
 window.carouselFix = {

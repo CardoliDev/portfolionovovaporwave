@@ -328,4 +328,4 @@ window.rocketAnimation = {
     activateStarTrail
 };
 
-console.log('Rocket animation loaded successfully'); 
+ 
