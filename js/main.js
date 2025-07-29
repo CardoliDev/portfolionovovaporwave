@@ -73,12 +73,24 @@ function initLoader() {
     const loader = document.getElementById('loader');
     const loaderText = document.querySelector('.loader-text .typed-text');
     
+    // Verificar se deve usar loader rápido (para desenvolvimento)
+    const fastLoader = window.location.search.includes('fast-loader=true');
+    
+    if (fastLoader) {
+        // Loader ultra-rápido para desenvolvimento
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 200);
+        }, 500);
+        return;
+    }
+    
     // Texto do loader baseado no idioma atual
     const currentLang = window.i18n ? window.i18n.currentLang : 'pt';
     const loaderMessages = window.i18n ? window.i18n.translations[currentLang].loader.messages : [
-        'Inicializando sistema...',
-        'Carregando módulos...',
-        'Conectando à rede...',
+        'Inicializando...',
         'Sistema pronto!'
     ];
     
@@ -100,22 +112,22 @@ function initLoader() {
                     setTimeout(() => {
                         currentMessage++;
                         typeLoaderText();
-                    }, 1000);
+                    }, 300);
                 }
-            }, 100);
+            }, 50);
         } else {
-            // Esconder loader após 1 segundo
+            // Esconder loader após 0.3 segundos
             setTimeout(() => {
                 loader.classList.add('hidden');
                 setTimeout(() => {
                     loader.style.display = 'none';
-                }, 500);
-            }, 1000);
+                }, 300);
+            }, 300);
         }
     }
     
     // Iniciar animação do loader
-    setTimeout(typeLoaderText, 500);
+    setTimeout(typeLoaderText, 200);
 }
 
 // ===== TYPED.JS =====

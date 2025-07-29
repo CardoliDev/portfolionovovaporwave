@@ -72,7 +72,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
 }
 
 .loader.hidden {
@@ -90,7 +90,7 @@ body {
     border: 3px solid transparent;
     border-top: 3px solid var(--primary-color);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 0.6s linear infinite;
     margin: 0 auto 20px;
     position: relative;
 }
@@ -105,7 +105,7 @@ body {
     border: 3px solid transparent;
     border-top: 3px solid var(--secondary-color);
     border-radius: 50%;
-    animation: spin 1.5s linear infinite reverse;
+    animation: spin 0.8s linear infinite reverse;
 }
 
 @keyframes spin {
@@ -120,7 +120,7 @@ body {
 }
 
 .cursor {
-    animation: blink 1s infinite;
+    animation: blink 0.6s infinite;
 }
 
 @keyframes blink {
