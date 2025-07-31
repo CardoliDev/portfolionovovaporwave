@@ -29,7 +29,6 @@ const i18n = {
                 title: 'Matheus Cardoso',
                 subtitle: [
                     'Desenvolvedor Full-Stack',
-                    'Designer UI/UX',
                     'Entusiasta de Tecnologia',
                     'Criador de Experiências Digitais'
                 ],
@@ -104,17 +103,38 @@ const i18n = {
                     title: 'Informações de Contato',
                     description: 'Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo para discutirmos como posso ajudar no seu projeto.',
                     email: 'Email',
-                    phone: 'WhatsApp',
-                    phoneValue: '55(83)98608-7039',
+                    linkedin: 'LinkedIn',
                     location: 'Localização',
                     locationValue: 'João Pessoa, Brasil'
                 },
-                form: {
-                    name: 'Seu Nome',
-                    email: 'Seu Email',
-                    subject: 'Assunto',
-                    message: 'Sua Mensagem',
-                    send: 'Enviar Mensagem'
+                action: {
+                    title: 'Vamos Conversar!',
+                    description: 'Pronto para transformar suas ideias em realidade? Entre em contato e vamos criar algo incrível juntos!',
+                    button: 'Iniciar Conversa no WhatsApp'
+                },
+                features: {
+                    fast: {
+                        title: 'Resposta Rápida',
+                        description: 'Resposta em até 2 horas'
+                    },
+                    chat: {
+                        title: 'Conversa Direta',
+                        description: 'Comunicação instantânea'
+                    },
+                    secure: {
+                        title: '100% Seguro',
+                        description: 'Conversa privada e segura'
+                    }
+                },
+                availability: {
+                    status: 'Disponível para projetos',
+                    time: 'Segunda a Sexta • 9h às 18h'
+                },
+                info: {
+                    availability: {
+                        status: 'Perfil Ativo',
+                        time: 'Sempre conectado • Resposta rápida'
+                    }
                 }
             },
             
@@ -156,7 +176,6 @@ const i18n = {
                 title: 'Matheus Cardoso',
                 subtitle: [
                     'Full-Stack Developer',
-                    'UI/UX Designer',
                     'Technology Enthusiast',
                     'Digital Experience Creator'
                 ],
@@ -231,17 +250,38 @@ const i18n = {
                     title: 'Contact Information',
                     description: 'I am always open to new opportunities and interesting projects. Contact me to discuss how I can help with your project.',
                     email: 'Email',
-                    phone: 'WhatsApp',
-                    phoneValue: '55(83)98608-7039',
+                    linkedin: 'LinkedIn',
                     location: 'Location',
                     locationValue: 'João Pessoa, Brazil'
                 },
-                form: {
-                    name: 'Your Name',
-                    email: 'Your Email',
-                    subject: 'Subject',
-                    message: 'Your Message',
-                    send: 'Send Message'
+                action: {
+                    title: "Let's Talk!",
+                    description: 'Ready to turn your ideas into reality? Get in touch and let\'s create something amazing together!',
+                    button: 'Start WhatsApp Conversation'
+                },
+                features: {
+                    fast: {
+                        title: 'Fast Response',
+                        description: 'Response within 2 hours'
+                    },
+                    chat: {
+                        title: 'Direct Chat',
+                        description: 'Instant communication'
+                    },
+                    secure: {
+                        title: '100% Secure',
+                        description: 'Private and secure conversation'
+                    }
+                },
+                availability: {
+                    status: 'Available for projects',
+                    time: 'Monday to Friday • 9am to 6pm'
+                },
+                info: {
+                    availability: {
+                        status: 'Active Profile',
+                        time: 'Always connected • Quick response'
+                    }
                 }
             },
             
@@ -283,7 +323,6 @@ const i18n = {
                 title: 'Matheus Cardoso',
                 subtitle: [
                     'Développeur Full-Stack',
-                    'Designer UI/UX',
                     'Passionné de Technologie',
                     'Créateur d\'Expériences Numériques'
                 ],
@@ -358,17 +397,38 @@ const i18n = {
                     title: 'Informations de Contact',
                     description: 'Je suis toujours ouvert aux nouvelles opportunités et projets intéressants. Contactez-moi pour discuter de la façon dont je peux vous aider avec votre projet.',
                     email: 'Email',
-                    phone: 'WhatsApp',
-                    phoneValue: '55(83)98608-7039',
+                    linkedin: 'LinkedIn',
                     location: 'Localisation',
                     locationValue: 'João Pessoa, Brésil'
                 },
-                form: {
-                    name: 'Votre Nom',
-                    email: 'Votre Email',
-                    subject: 'Sujet',
-                    message: 'Votre Message',
-                    send: 'Envoyer Message'
+                action: {
+                    title: 'Parlons-en !',
+                    description: 'Prêt à transformer vos idées en réalité ? Contactez-moi et créons quelque chose d\'incroyable ensemble !',
+                    button: 'Démarrer Conversation WhatsApp'
+                },
+                features: {
+                    fast: {
+                        title: 'Réponse Rapide',
+                        description: 'Réponse en 2 heures'
+                    },
+                    chat: {
+                        title: 'Chat Direct',
+                        description: 'Communication instantanée'
+                    },
+                    secure: {
+                        title: '100% Sécurisé',
+                        description: 'Conversation privée et sécurisée'
+                    }
+                },
+                availability: {
+                    status: 'Disponible pour projets',
+                    time: 'Lundi à Vendredi • 9h à 18h'
+                },
+                info: {
+                    availability: {
+                        status: 'Profil Actif',
+                        time: 'Toujours connecté • Réponse rapide'
+                    }
                 }
             },
             

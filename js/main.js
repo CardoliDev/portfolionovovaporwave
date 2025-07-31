@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGSAP();
     initScrollSpy();
     initThemeToggle();
-    initContactForm();
+    // initContactForm(); // Removido - agora é apenas link para WhatsApp
     initSkillBars();
     initSmoothScroll();
     initBackToTop();
@@ -138,7 +138,6 @@ function initTypedJS() {
     const currentLang = window.i18n ? window.i18n.currentLang : 'pt';
     const strings = window.i18n ? window.i18n.translations[currentLang].hero.subtitle : [
         'Desenvolvedor Front-End',
-        'Designer UI/UX',
         'Entusiasta de Tecnologia',
         'Criador de Experiências Digitais'
     ];
@@ -338,113 +337,11 @@ function initThemeToggle() {
 }
 
 // ===== FORMULÁRIO DE CONTATO =====
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obter dados do formulário
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Validação básica
-            if (!validateForm(data)) {
-                return;
-            }
-            
-            // Simular envio (substitua por sua lógica de envio real)
-            showNotification('Mensagem enviada com sucesso!', 'success');
-            contactForm.reset();
-            
-            // Aqui você pode integrar com serviços como:
-            // - EmailJS
-            // - Formspree
-            // - Netlify Forms
-            // - Sua própria API
-        });
-    }
-    
-    function validateForm(data) {
-        const errors = [];
-        
-        if (!data.name || data.name.trim().length < 2) {
-            errors.push('Nome deve ter pelo menos 2 caracteres');
-        }
-        
-        if (!data.email || !isValidEmail(data.email)) {
-            errors.push('Email inválido');
-        }
-        
-        if (!data.subject || data.subject.trim().length < 5) {
-            errors.push('Assunto deve ter pelo menos 5 caracteres');
-        }
-        
-        if (!data.message || data.message.trim().length < 10) {
-            errors.push('Mensagem deve ter pelo menos 10 caracteres');
-        }
-        
-        if (errors.length > 0) {
-            showNotification(errors.join('\n'), 'error');
-            return false;
-        }
-        
-        return true;
-    }
-    
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    function showNotification(message, type) {
-        // Criar notificação
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-                <span>${message}</span>
-            </div>
-        `;
-        
-        // Adicionar estilos
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${type === 'success' ? '#00ff00' : '#ff0000'};
-            color: #000;
-            padding: 1rem 1.5rem;
-            border-radius: 5px;
-            z-index: 10000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            max-width: 300px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Animar entrada
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        // Remover após 5 segundos
-        setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 300);
-        }, 5000);
-    }
-}
+// Removido - agora é apenas link para WhatsApp
 
 // ===== BARRAS DE HABILIDADES =====
 function initSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillBars = document.querySelectorAll('.skill-progress-fill');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
