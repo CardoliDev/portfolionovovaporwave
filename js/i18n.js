@@ -43,7 +43,7 @@ const i18n = {
             about: {
                 title: 'Sobre Mim',
                 subtitle: 'Quem sou eu',
-                text1: 'Sou um desenvolvedor front-end apaixonado por criar experiências digitais únicas e inovadoras. Com expertise em tecnologias modernas, transformo conceitos criativos em interfaces funcionais e responsivas que cativam os usuários.',
+                text1: 'Sou um desenvolvedor FullStack com foco em front-end, especializado na criação de interfaces web modernas, responsivas e centradas na experiência do usuário. No back-end, possuo experiência com Java e Node.js, desenvolvendo soluções robustas e integradas com APIs REST e bancos de dados PostgreSQL. Com conhecimentos em tecnologias como ReactJS, JavaScript e Bootstrap, transformo ideias criativas em aplicações funcionais e de alto desempenho.',
                 text2: 'Minha jornada no desenvolvimento web começou há mais de 3 anos, e desde então tenho trabalhado em projetos desafiadores que me permitiram aprimorar minhas habilidades técnicas e criativas.',
                 stats: {
                     projects: 'Projetos Concluídos',
