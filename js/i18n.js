@@ -80,6 +80,16 @@ const i18n = {
                 frontend: 'Frontend',
                 backend: 'Backend',
                 tools: 'Ferramentas & Outros',
+                frontendDesc: 'Desenvolvimento de interfaces modernas e responsivas',
+                backendDesc: 'Consumo de API\'s e sistemas robustos',
+                toolsDesc: 'Ferramentas essenciais para desenvolvimento',
+                skillLevels: {
+                    advanced: 'Avançado',
+                    intermediate: 'Intermediário',
+                    beginner: 'Iniciante'
+                },
+                technologies: '4 Tecnologias',
+                tools: '4 Ferramentas',
                 skillNames: {
                     html: 'HTML5 & CSS3',
                     js: 'JavaScript (ES6+)',
@@ -130,17 +140,16 @@ const i18n = {
                     status: 'Disponível para projetos',
                     time: 'Segunda a Sexta • 9h às 18h'
                 },
-                info: {
-                    availability: {
-                        status: 'Perfil Ativo',
-                        time: 'Sempre conectado • Resposta rápida'
-                    }
+                infoAvailability: {
+                    status: 'Perfil Ativo',
+                    time: 'Sempre conectado • Resposta rápida'
                 }
             },
             
             // Footer
             footer: {
-                copyright: 'Todos os direitos reservados.'
+                copyright: 'Todos os direitos reservados.',
+                backToTop: 'Voltar ao topo'
             },
             
             // Loader
@@ -227,6 +236,15 @@ const i18n = {
                 frontend: 'Frontend',
                 backend: 'Backend',
                 tools: 'Tools & Others',
+                frontendDesc: 'Development of modern and responsive interfaces',
+                backendDesc: 'API consumption and robust systems',
+                toolsDesc: 'Essential development tools',
+                skillLevels: {
+                    advanced: 'Advanced',
+                    intermediate: 'Intermediate',
+                    beginner: 'Beginner'
+                },
+                technologies: 'Technologies',
                 skillNames: {
                     html: 'HTML5 & CSS3',
                     js: 'JavaScript (ES6+)',
@@ -277,17 +295,16 @@ const i18n = {
                     status: 'Available for projects',
                     time: 'Monday to Friday • 9am to 6pm'
                 },
-                info: {
-                    availability: {
-                        status: 'Active Profile',
-                        time: 'Always connected • Quick response'
-                    }
+                infoAvailability: {
+                    status: 'Active Profile',
+                    time: 'Always connected • Quick response'
                 }
             },
             
             // Footer
             footer: {
-                copyright: 'All rights reserved.'
+                copyright: 'All rights reserved.',
+                backToTop: 'Back to top'
             },
             
             // Loader
@@ -374,6 +391,15 @@ const i18n = {
                 frontend: 'Frontend',
                 backend: 'Backend',
                 tools: 'Outils & Autres',
+                frontendDesc: 'Développement d\'interfaces modernes et responsives',
+                backendDesc: 'Consommation d\'APIs et systèmes robustes',
+                toolsDesc: 'Outils essentiels pour le développement',
+                skillLevels: {
+                    advanced: 'Avancé',
+                    intermediate: 'Intermédiaire',
+                    beginner: 'Débutant'
+                },
+                technologies: 'Technologies',
                 skillNames: {
                     html: 'HTML5 & CSS3',
                     js: 'JavaScript (ES6+)',
@@ -424,17 +450,16 @@ const i18n = {
                     status: 'Disponible pour projets',
                     time: 'Lundi à Vendredi • 9h à 18h'
                 },
-                info: {
-                    availability: {
-                        status: 'Profil Actif',
-                        time: 'Toujours connecté • Réponse rapide'
-                    }
+                infoAvailability: {
+                    status: 'Profil Actif',
+                    time: 'Toujours connecté • Réponse rapide'
                 }
             },
             
             // Footer
             footer: {
-                copyright: 'Tous droits réservés.'
+                copyright: 'Tous droits réservés.',
+                backToTop: 'Retour en haut'
             },
             
             // Loader
@@ -451,12 +476,20 @@ const i18n = {
     
     // Inicializar
     init() {
+        // Verificar se já foi inicializado
+        if (this.initialized) {
+            return;
+        }
+        
         // Verificar idioma salvo
         const savedLang = localStorage.getItem('language') || 'pt';
         this.setLanguage(savedLang);
         
         // Adicionar botão de idioma
         this.addLanguageToggle();
+        
+        // Marcar como inicializado
+        this.initialized = true;
     },
     
     // Definir idioma
@@ -526,19 +559,8 @@ const i18n = {
     
     // Atualizar navegação
     updateNavigation(nav) {
-        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-        const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
-        
-        navItems.forEach((item, index) => {
-            if (navLinks[index]) {
-                // Preservar o href e apenas atualizar o texto
-                const href = navLinks[index].getAttribute('href');
-                navLinks[index].textContent = nav[item];
-                if (href) {
-                    navLinks[index].setAttribute('href', href);
-                }
-            }
-        });
+        // A navegação será atualizada automaticamente pela função updateI18nElements
+        // que é chamada depois desta função
     },
     
     // Atualizar hero section
@@ -630,27 +652,17 @@ const i18n = {
     
     // Atualizar habilidades
     updateSkills(skills) {
-        // Título e subtítulo
-        const titleElement = document.querySelector('#habilidades .section-title');
-        const subtitleElement = document.querySelector('#habilidades .section-subtitle');
-        
-        if (titleElement) titleElement.textContent = skills.title;
-        if (subtitleElement) subtitleElement.textContent = skills.subtitle;
-        
-        // Categorias
-        const categories = document.querySelectorAll('.category-title');
-        if (categories[0]) categories[0].textContent = skills.frontend;
-        if (categories[1]) categories[1].textContent = skills.backend;
-        if (categories[2]) categories[2].textContent = skills.tools;
+        // As habilidades serão atualizadas automaticamente pela função updateI18nElements
+        // que é chamada depois desta função
     },
     
 
     
     // Atualizar footer
     updateFooter(footer) {
-        const copyright = document.querySelector('.footer-content p');
+        const copyright = document.querySelector('[data-i18n="footer.copyright"]');
         if (copyright) {
-            copyright.innerHTML = `&copy; 2024 <span class="brand-text">DEV</span><span class="brand-glow">CYBER</span>. ${footer.copyright}`;
+            copyright.textContent = footer.copyright;
         }
     },
     
@@ -710,6 +722,12 @@ const i18n = {
     
     // Adicionar botão de alternância de idioma
     addLanguageToggle() {
+        // Verificar se o botão de idioma já existe
+        const existingLanguageDropdown = document.getElementById('languageDropdown');
+        if (existingLanguageDropdown) {
+            return; // Botão já existe, não criar outro
+        }
+        
         const navbar = document.querySelector('.navbar-nav');
         const themeToggle = document.querySelector('.theme-toggle');
         
@@ -781,4 +799,13 @@ const i18n = {
 };
 
 // Exportar para uso global
-window.i18n = i18n; 
+window.i18n = i18n;
+
+// Inicializar quando o DOM estiver pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        i18n.init();
+    });
+} else {
+    i18n.init();
+} 

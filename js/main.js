@@ -3,10 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Garantir que o conteúdo seja visível
     ensureContentVisibility();
     
-    // Inicializar sistema de internacionalização primeiro
-    if (window.i18n) {
-        i18n.init();
-    }
+    // O sistema de internacionalização é inicializado automaticamente pelo i18n.js
     
     // Inicializar todas as funcionalidades
     initLoader();
