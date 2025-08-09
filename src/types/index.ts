@@ -74,8 +74,6 @@ export type ThemeMode = 'light' | 'dark';
 export type LanguageCode = 'pt' | 'en' | 'fr';
 
 export interface AppContextType {
-  theme: ThemeMode;
-  toggleTheme: () => void;
   language: LanguageCode;
   setLanguage: (lang: LanguageCode) => void;
   isLoading: boolean;

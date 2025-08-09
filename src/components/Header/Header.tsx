@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { useApp } from '@/contexts/AppContext';
 import { LanguageCode } from '@/types';
 
@@ -156,24 +156,6 @@ const NavActions = styled.div`
   gap: 1rem;
 `;
 
-const ThemeToggle = styled(motion.button)`
-  padding: 0.5rem;
-  border-radius: 50%;
-  background: ${({ theme }) => theme.colors.surface};
-  color: ${({ theme }) => theme.colors.text};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all ${({ theme }) => theme.animations.fast};
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.primary};
-    color: white;
-    box-shadow: ${({ theme }) => theme.shadows.neon};
-  }
-`;
 
 const LanguageSelector = styled.div`
   position: relative;
@@ -282,7 +264,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const { t } = useTranslation();
-  const { theme, toggleTheme, language, setLanguage } = useApp();
+  const { language, setLanguage } = useApp();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
@@ -396,15 +378,6 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         </NavMenu>
 
         <NavActions>
-          <ThemeToggle
-            onClick={toggleTheme}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label={t('footer.backToTop')}
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </ThemeToggle>
-
           <LanguageSelector>
             <LanguageButton
               onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}

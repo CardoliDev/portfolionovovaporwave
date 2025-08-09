@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
-import { ParallaxEffects } from '../ParallaxEffects';
 import { Code, Server, Wrench } from 'lucide-react';
 
 const SkillsSection = styled.section`
@@ -435,7 +434,6 @@ export const Skills: React.FC = () => {
 
   return (
     <SkillsSection id="skills" ref={ref}>
-      <ParallaxEffects variant="minimal" />
       <Container>
         <motion.div
           variants={containerVariants}

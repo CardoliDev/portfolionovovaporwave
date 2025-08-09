@@ -1,6 +1,13 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppContextType, ThemeMode, LanguageCode } from '@/types';
+import { LanguageCode } from '../types';
+
+interface AppContextType {
+  language: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+  isLoading: boolean;
+  setIsLoading: (loading: boolean) => void;
+}
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
@@ -10,47 +17,11 @@ interface AppProviderProps {
 
 export function AppProvider({ children }: AppProviderProps) {
   const { i18n } = useTranslation();
-  const [theme, setTheme] = useState<ThemeMode>(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return (savedTheme as ThemeMode) || 'dark';
-  });
   const [language, setCurrentLanguage] = useState<LanguageCode>(() => {
     const savedLanguage = localStorage.getItem('language');
     return (savedLanguage as LanguageCode) || 'pt';
   });
   const [isLoading, setIsLoading] = useState(true);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    const transitionClass = theme === 'light' ? 'light-to-dark' : 'dark-to-light';
-    
-    // Criar overlay de transição
-    const overlay = document.createElement('div');
-    overlay.className = `theme-transition-overlay ${transitionClass}`;
-    document.body.appendChild(overlay);
-    
-    // Forçar reflow para garantir que o elemento está no DOM
-    overlay.offsetHeight;
-    
-    // Iniciar animação
-    requestAnimationFrame(() => {
-      overlay.classList.add('animating');
-    });
-    
-    // Mudar tema no início da animação
-    setTimeout(() => {
-      setTheme(newTheme);
-      localStorage.setItem('theme', newTheme);
-    }, 150); // Timing otimizado para 1s de animação
-    
-    // Remover overlay após animação com cleanup
-    setTimeout(() => {
-      if (overlay && overlay.parentNode === document.body) {
-        overlay.style.animation = 'none';
-        document.body.removeChild(overlay);
-      }
-    }, 1050); // Pequena margem após a animação
-  };
 
   const setLanguage = (lang: LanguageCode) => {
     setCurrentLanguage(lang);
@@ -73,13 +44,11 @@ export function AppProvider({ children }: AppProviderProps) {
   }, [i18n, language]);
 
   useEffect(() => {
-    // Apply theme to document
-    document.body.setAttribute('data-theme', theme);
-  }, [theme]);
+    // Force dark theme
+    document.body.setAttribute('data-theme', 'dark');
+  }, []);
 
   const value: AppContextType = {
-    theme,
-    toggleTheme,
     language,
     setLanguage,
     isLoading,

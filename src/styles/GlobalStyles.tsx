@@ -736,69 +736,7 @@ const GlobalStylesComponent = createGlobalStyle<{ theme: CyberpunkTheme }>`
     }
   }
 
-  /* Overlay de transição gradual de tema */
-  .theme-transition-overlay {
-    position: fixed;
-    top: -100vh;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    pointer-events: none;
-    transition: none;
-    will-change: transform, opacity;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-
-  .theme-transition-overlay.dark-to-light {
-    background: linear-gradient(
-      180deg,
-      rgba(250, 251, 252, 0.9) 0%,
-      rgba(241, 245, 249, 0.8) 25%,
-      rgba(226, 232, 240, 0.7) 50%,
-      rgba(203, 213, 225, 0.6) 75%,
-      rgba(148, 163, 184, 0.5) 100%
-    );
-    mix-blend-mode: overlay;
-  }
-
-  .theme-transition-overlay.light-to-dark {
-    background: linear-gradient(
-      180deg,
-      rgba(13, 17, 23, 0.9) 0%,
-      rgba(22, 27, 34, 0.8) 25%,
-      rgba(33, 38, 45, 0.7) 50%,
-      rgba(48, 54, 61, 0.6) 75%,
-      rgba(72, 79, 88, 0.5) 100%
-    );
-    mix-blend-mode: multiply;
-  }
-
-  .theme-transition-overlay.animating {
-    animation: slideDownTransition 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  }
-
-  @keyframes slideDownTransition {
-    0% {
-      transform: translateY(-100vh);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.7;
-    }
-    50% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    90% {
-      opacity: 0.7;
-    }
-    100% {
-      transform: translateY(100vh);
-      opacity: 0;
-    }
-  }
+  /* Tema escuro fixo - sem transições */
 `;
 
 const GlobalStyles = () => {

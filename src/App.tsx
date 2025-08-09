@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { HelmetProvider } from 'react-helmet-async';
-import { lightTheme, darkTheme } from '@styles/theme';
+import { darkTheme } from '@styles/theme';
 import GlobalStyles from '@styles/GlobalStyles';
 import { AppProvider, useApp } from '@/contexts/AppContext';
 import { Loader } from '@components/Loader';
@@ -16,10 +16,10 @@ import { BackToTop } from '@components/BackToTop';
 import GhostShellEffect from './components/GhostShellEffect';
 
 function AppContent() {
-  const { theme, isLoading, setIsLoading } = useApp();
+  const { isLoading, setIsLoading } = useApp();
   const [activeSection, setActiveSection] = useState('home');
 
-  const currentTheme = theme === 'light' ? lightTheme : darkTheme;
+  const currentTheme = darkTheme;
 
   useEffect(() => {
     const handleScroll = () => {

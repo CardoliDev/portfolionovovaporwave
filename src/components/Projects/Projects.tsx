@@ -7,8 +7,43 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const ProjectsSection = styled.section`
   padding: 6rem 0;
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.surface};
   position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 80% 20%, ${({ theme }) => theme.colors.neon.pink}06 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, ${({ theme }) => theme.colors.neon.cyan}04 0%, transparent 50%);
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(45deg, ${({ theme }) => theme.colors.border}03 1px, transparent 1px),
+      linear-gradient(-45deg, ${({ theme }) => theme.colors.border}03 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.2;
+    z-index: -1;
+    animation: diagonalMove 50s linear infinite;
+  }
+
+  @keyframes diagonalMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(80px, 80px); }
+  }
 `;
 
 const Container = styled.div`

@@ -3,12 +3,52 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
-import { ParallaxEffects } from '../ParallaxEffects';
 
 const AboutSection = styled.section`
   padding: 6rem 0;
   background: ${({ theme }) => theme.colors.background};
   position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    right: -10%;
+    bottom: -20%;
+    background: 
+      radial-gradient(circle at 20% 30%, ${({ theme }) => theme.colors.neon.cyan}08 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, ${({ theme }) => theme.colors.neon.pink}05 0%, transparent 50%);
+    animation: floatBackground 30s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(90deg, ${({ theme }) => theme.colors.border}05 1px, transparent 1px),
+      linear-gradient(180deg, ${({ theme }) => theme.colors.border}05 1px, transparent 1px);
+    background-size: 100px 100px;
+    opacity: 0.3;
+    z-index: -1;
+    animation: gridMove 40s linear infinite;
+  }
+
+  @keyframes floatBackground {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+  }
+
+  @keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
+  }
 `;
 
 const Container = styled.div`
@@ -243,76 +283,75 @@ export const About: React.FC = () => {
 
   return (
     <AboutSection id="about" ref={ref}>
-      <ParallaxEffects variant="section" />
       <Container>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-        >
-          <AboutGrid>
-            <AboutContent>
-              <SectionTitle variants={itemVariants}>
-                {t('about.title')}
-              </SectionTitle>
-              
-              <SectionSubtitle variants={itemVariants}>
-                {t('about.subtitle')}
-              </SectionSubtitle>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
+            <AboutGrid>
+              <AboutContent>
+                <SectionTitle variants={itemVariants}>
+                  {t('about.title')}
+                </SectionTitle>
+                
+                <SectionSubtitle variants={itemVariants}>
+                  {t('about.subtitle')}
+                </SectionSubtitle>
 
-              <AboutText variants={itemVariants}>
-                {t('about.text1')}
-              </AboutText>
+                <AboutText variants={itemVariants}>
+                  {t('about.text1')}
+                </AboutText>
 
-              <AboutText variants={itemVariants}>
-                {t('about.text2')}
-              </AboutText>
+                <AboutText variants={itemVariants}>
+                  {t('about.text2')}
+                </AboutText>
 
-              <AboutStats variants={itemVariants}>
-                {stats.map((stat, index) => (
-                  <StatItem
-                    key={stat.key}
-                    variants={itemVariants}
-                    whileHover={{ 
-                      scale: 1.05,
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    <StatNumber
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={inView ? { 
-                        opacity: 1, 
-                        scale: 1,
-                        transition: { 
-                          delay: 1 + index * 0.2,
-                          duration: 0.5,
-                          type: 'spring',
-                          stiffness: 200
-                        }
-                      } : {}}
+                <AboutStats variants={itemVariants}>
+                  {stats.map((stat, index) => (
+                    <StatItem
+                      key={stat.key}
+                      variants={itemVariants}
+                      whileHover={{ 
+                        scale: 1.05,
+                        transition: { duration: 0.2 }
+                      }}
                     >
-                      {stat.number}
-                    </StatNumber>
-                    <StatLabel>
-                      {t(`about.stats.${stat.key}`)}
-                    </StatLabel>
-                  </StatItem>
-                ))}
-              </AboutStats>
-            </AboutContent>
-
-            <AboutImageContainer variants={itemVariants}>
-              <CyberFrame>
-                <DataCrystal>
-                  {Array.from({ length: 6 }, (_, index) => (
-                    <CrystalFacet key={index} index={index} />
+                      <StatNumber
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={inView ? { 
+                          opacity: 1, 
+                          scale: 1,
+                          transition: { 
+                            delay: 1 + index * 0.2,
+                            duration: 0.5,
+                            type: 'spring',
+                            stiffness: 200
+                          }
+                        } : {}}
+                      >
+                        {stat.number}
+                      </StatNumber>
+                      <StatLabel>
+                        {t(`about.stats.${stat.key}`)}
+                      </StatLabel>
+                    </StatItem>
                   ))}
-                  <CrystalCore />
-                </DataCrystal>
-              </CyberFrame>
-            </AboutImageContainer>
-          </AboutGrid>
-        </motion.div>
+                </AboutStats>
+              </AboutContent>
+
+              <AboutImageContainer variants={itemVariants}>
+                <CyberFrame>
+                  <DataCrystal>
+                    {Array.from({ length: 6 }, (_, index) => (
+                      <CrystalFacet key={index} index={index} />
+                    ))}
+                    <CrystalCore />
+                  </DataCrystal>
+                </CyberFrame>
+              </AboutImageContainer>
+            </AboutGrid>
+          </motion.div>
       </Container>
     </AboutSection>
   );
