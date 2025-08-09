@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
+import { ParallaxEffects } from '../ParallaxEffects';
 
 const AboutSection = styled.section`
   padding: 6rem 0;
@@ -242,6 +243,7 @@ export const About: React.FC = () => {
 
   return (
     <AboutSection id="about" ref={ref}>
+      <ParallaxEffects variant="section" />
       <Container>
         <motion.div
           variants={containerVariants}

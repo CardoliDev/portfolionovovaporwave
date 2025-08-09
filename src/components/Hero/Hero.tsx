@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import styled from 'styled-components';
 import { TypeAnimation } from 'react-type-animation';
 import { Download, MessageCircle, Github, Linkedin, Mail } from 'lucide-react';
+import { ParallaxEffects } from '../ParallaxEffects';
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -484,6 +485,7 @@ export const Hero: React.FC = () => {
 
   return (
     <HeroSection id="home">
+      <ParallaxEffects variant="hero" />
       <HeroBackground>
         <CyberGrid />
         <NeonLines />
