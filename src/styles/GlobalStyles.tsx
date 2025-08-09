@@ -17,49 +17,91 @@ const GlobalStylesComponent = createGlobalStyle<{ theme: CyberpunkTheme }>`
     font-family: ${({ theme }) => theme.fonts.primary};
     font-weight: 400;
     letter-spacing: 0.5px;
-    background: 
-      radial-gradient(ellipse at top, #0d1117 0%, #010409 70%),
-      radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.05) 0%, transparent 50%),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 120px,
-        rgba(0, 212, 255, 0.02) 120px,
-        rgba(0, 212, 255, 0.02) 122px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 120px,
-        rgba(100, 255, 218, 0.02) 120px,
-        rgba(100, 255, 218, 0.02) 122px
-      );
-    background-attachment: fixed;
+    background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     line-height: 1.6;
     overflow-x: hidden;
-    transition: background-color ${({ theme }) => theme.animations.normal},
-                color ${({ theme }) => theme.animations.normal};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     position: relative;
 
-    &::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    /* Background pattern for dark theme */
+    &[data-theme="dark"] {
       background: 
-        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 20, 147, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.04) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-      animation: atmosphereShift 30s ease-in-out infinite;
+        radial-gradient(ellipse at top, #0d1117 0%, #010409 70%),
+        radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.05) 0%, transparent 50%),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 120px,
+          rgba(0, 212, 255, 0.02) 120px,
+          rgba(0, 212, 255, 0.02) 122px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 120px,
+          rgba(100, 255, 218, 0.02) 120px,
+          rgba(100, 255, 218, 0.02) 122px
+        );
+      background-attachment: fixed;
+
+      &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+          radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 20, 147, 0.08) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.04) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+        animation: atmosphereShift 30s ease-in-out infinite;
+      }
+    }
+
+    /* Background pattern for light theme */
+    &[data-theme="light"] {
+      background: 
+        linear-gradient(135deg, #fafbfc 0%, #f1f5f9 100%),
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 50%),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 120px,
+          rgba(37, 99, 235, 0.01) 120px,
+          rgba(37, 99, 235, 0.01) 122px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 120px,
+          rgba(6, 182, 212, 0.01) 120px,
+          rgba(6, 182, 212, 0.01) 122px
+        );
+      background-attachment: fixed;
+
+      &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+          radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+        animation: atmosphereShift 30s ease-in-out infinite;
+      }
     }
 
     @keyframes atmosphereShift {
@@ -691,6 +733,70 @@ const GlobalStylesComponent = createGlobalStyle<{ theme: CyberpunkTheme }>`
     /* Prevenir zoom no foco de inputs em iOS */
     input, select, textarea {
       font-size: 16px;
+    }
+  }
+
+  /* Overlay de transição gradual de tema */
+  .theme-transition-overlay {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    transition: none;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .theme-transition-overlay.dark-to-light {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 251, 252, 0.9) 0%,
+      rgba(241, 245, 249, 0.8) 25%,
+      rgba(226, 232, 240, 0.7) 50%,
+      rgba(203, 213, 225, 0.6) 75%,
+      rgba(148, 163, 184, 0.5) 100%
+    );
+    mix-blend-mode: overlay;
+  }
+
+  .theme-transition-overlay.light-to-dark {
+    background: linear-gradient(
+      180deg,
+      rgba(13, 17, 23, 0.9) 0%,
+      rgba(22, 27, 34, 0.8) 25%,
+      rgba(33, 38, 45, 0.7) 50%,
+      rgba(48, 54, 61, 0.6) 75%,
+      rgba(72, 79, 88, 0.5) 100%
+    );
+    mix-blend-mode: multiply;
+  }
+
+  .theme-transition-overlay.animating {
+    animation: slideDownTransition 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes slideDownTransition {
+    0% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
     }
   }
 `;

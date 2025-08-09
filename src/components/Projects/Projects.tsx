@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
-import { ExternalLink, Github, Play } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const ProjectsSection = styled.section`
   padding: 6rem 0;
@@ -66,8 +66,8 @@ const ProjectCard = styled(motion.div)`
   transition: all ${({ theme }) => theme.animations.normal};
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: ${({ theme }) => theme.shadows.large};
+    transform: translateY(-5px);
+    box-shadow: ${({ theme }) => theme.shadows.medium};
     border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
@@ -195,38 +195,7 @@ const ActionButton = styled(motion.a)`
   }
 `;
 
-const ProjectOverlay = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: ${({ theme }) => theme.colors.background}95;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity ${({ theme }) => theme.animations.normal};
-`;
-
-const OverlayContent = styled.div`
-  text-align: center;
-  color: ${({ theme }) => theme.colors.text};
-`;
-
-const OverlayTitle = styled.h4`
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: ${({ theme }) => theme.colors.neon.cyan};
-  margin-bottom: 1rem;
-  font-family: ${({ theme }) => theme.fonts.secondary};
-`;
-
-const OverlayActions = styled.div`
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-`;
+// Overlay removido para melhor legibilidade
 
 interface Project {
   id: string;
@@ -383,46 +352,7 @@ export const Projects: React.FC = () => {
                   </ProjectActions>
                 </ProjectContent>
 
-                <ProjectOverlay
-                  initial={false}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <OverlayContent>
-                    <OverlayTitle>
-                      {t(`projects.${project.id}.title`)}
-                    </OverlayTitle>
-                    
-                    <OverlayActions>
-                      {project.demoUrl && (
-                        <ActionButton
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="primary"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          <Play size={16} />
-                          Ver Demo
-                        </ActionButton>
-                      )}
-                      
-                      {project.githubUrl && (
-                        <ActionButton
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          <Github size={16} />
-                          Código
-                        </ActionButton>
-                      )}
-                    </OverlayActions>
-                  </OverlayContent>
-                </ProjectOverlay>
+
               </ProjectCard>
             ))}
           </ProjectsGrid>

@@ -22,8 +22,34 @@ export function AppProvider({ children }: AppProviderProps) {
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
+    const transitionClass = theme === 'light' ? 'light-to-dark' : 'dark-to-light';
+    
+    // Criar overlay de transição
+    const overlay = document.createElement('div');
+    overlay.className = `theme-transition-overlay ${transitionClass}`;
+    document.body.appendChild(overlay);
+    
+    // Forçar reflow para garantir que o elemento está no DOM
+    overlay.offsetHeight;
+    
+    // Iniciar animação
+    requestAnimationFrame(() => {
+      overlay.classList.add('animating');
+    });
+    
+    // Mudar tema no início da animação
+    setTimeout(() => {
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    }, 150); // Timing otimizado para 1s de animação
+    
+    // Remover overlay após animação com cleanup
+    setTimeout(() => {
+      if (overlay && overlay.parentNode === document.body) {
+        overlay.style.animation = 'none';
+        document.body.removeChild(overlay);
+      }
+    }, 1050); // Pequena margem após a animação
   };
 
   const setLanguage = (lang: LanguageCode) => {

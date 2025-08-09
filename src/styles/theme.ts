@@ -61,12 +61,6 @@ const baseTheme = {
     display: '"Glitch Goblin", "SD Dystopian", "Iceland", monospace',
     special: '"Valorax", "Orbitron", monospace',
   },
-  shadows: {
-    small: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    medium: '0 4px 8px rgba(0, 0, 0, 0.15)',
-    large: '0 8px 16px rgba(0, 0, 0, 0.2)',
-    neon: '0 0 20px rgba(0, 255, 255, 0.5)',
-  },
   breakpoints: {
     xs: '480px',
     sm: '768px',
@@ -83,35 +77,47 @@ const baseTheme = {
 
 export const lightTheme: CyberpunkTheme = {
   ...baseTheme,
+  shadows: {
+    small: '0 2px 8px rgba(37, 99, 235, 0.08)',
+    medium: '0 4px 16px rgba(37, 99, 235, 0.12)',
+    large: '0 8px 32px rgba(37, 99, 235, 0.16)',
+    neon: '0 0 20px rgba(37, 99, 235, 0.3), 0 0 40px rgba(124, 58, 237, 0.2)',
+  },
   colors: {
-    primary: '#6366f1',
-    secondary: '#8b5cf6',
-    accent: '#06b6d4',
-    background: '#ffffff',
-    surface: '#f8fafc',
-    text: '#1e293b',
-    textSecondary: '#64748b',
-    border: '#e2e8f0',
-    success: '#10b981',
-    warning: '#f59e0b',
-    error: '#ef4444',
+    primary: '#2563eb', // Azul sofisticado e profissional
+    secondary: '#7c3aed', // Roxo elegante
+    accent: '#0891b2', // Ciano suave
+    background: '#fafbfc', // Branco com leve toque azulado
+    surface: '#f1f5f9', // Cinza azulado muito suave
+    text: '#0f172a', // Preto azulado profundo
+    textSecondary: '#475569', // Cinza azulado médio
+    border: '#cbd5e1', // Borda suave azul-cinza
+    success: '#059669', // Verde elegante
+    warning: '#d97706', // Laranja sofisticado
+    error: '#dc2626', // Vermelho elegante
     neon: {
-      blue: '#00bfff',
-      cyan: '#00ffff',
-      pink: '#ff1493',
-      purple: '#8a2be2',
-      green: '#00ff7f',
+      blue: '#3b82f6', // Azul neon suave
+      cyan: '#06b6d4', // Ciano elegante
+      pink: '#ec4899', // Rosa sofisticado
+      purple: '#8b5cf6', // Roxo neon suave
+      green: '#10b981', // Verde neon elegante
     },
     gradient: {
-      primary: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
-      secondary: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
-      neon: 'linear-gradient(135deg, #00ffff 0%, #ff1493 100%)',
+      primary: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', // Azul para roxo elegante
+      secondary: 'linear-gradient(135deg, #06b6d4 0%, #2563eb 100%)', // Ciano para azul suave
+      neon: 'linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6, #ec4899)', // Paleta harmoniosa
     },
   },
 };
 
 export const darkTheme: CyberpunkTheme = {
   ...baseTheme,
+  shadows: {
+    small: '0 2px 8px rgba(0, 212, 255, 0.1)',
+    medium: '0 4px 16px rgba(0, 212, 255, 0.15)',
+    large: '0 8px 32px rgba(0, 212, 255, 0.2)',
+    neon: '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3)',
+  },
   colors: {
     primary: '#00d4ff', // Azul ciano Ghost in the Shell
     secondary: '#ff6b35', // Laranja vibrante do filme

@@ -203,8 +203,13 @@ const HeroTitle = styled(motion.h1)`
   font-size: 3rem;
   font-family: ${({ theme }) => theme.fonts.display};
   font-weight: 700;
+  margin-top: 3rem;
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.colors.textSecondary};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-top: 4rem;
+  }
   position: relative;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -364,6 +369,11 @@ const SocialLinks = styled(motion.div)`
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin-bottom: 3rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-bottom: 4rem;
+  }
 `;
 
 const SocialLink = styled(motion.a)`
@@ -393,6 +403,13 @@ const ScrollIndicator = styled(motion.div)`
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+  cursor: pointer;
+  padding: 1rem;
+  transition: all ${({ theme }) => theme.animations.fast};
+
+  &:hover {
+    transform: translateX(-50%) scale(1.1);
+  }
 `;
 
 const ScrollArrow = styled(motion.div)`
@@ -413,6 +430,16 @@ const ScrollArrow = styled(motion.div)`
 
 export const Hero: React.FC = () => {
   const { t, i18n } = useTranslation();
+
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   const particles = Array.from({ length: 8 }, (_, i) => ({
     id: i,
@@ -591,6 +618,9 @@ export const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2 }}
+        onClick={scrollToAbout}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         <ScrollArrow />
       </ScrollIndicator>
