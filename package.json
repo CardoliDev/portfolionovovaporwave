@@ -1,46 +1,38 @@
 {
-  "name": "portfolio-cyberpunk",
+  "name": "cyberpunk-portfolio",
+  "private": true,
   "version": "1.0.0",
-  "description": "Portfólio pessoal com temática cyberpunk para desenvolvedores front-end",
-  "main": "index.html",
+  "type": "module",
   "scripts": {
-    "dev": "live-server --port=3000 --open=/",
-    "build": "echo 'Build completed - static site ready for deployment'",
-    "serve": "http-server -p 8080 -o"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "portfolio",
-    "cyberpunk",
-    "frontend",
-    "developer",
-    "html5",
-    "css3",
-    "javascript",
-    "bootstrap",
-    "gsap",
-    "animations"
-  ],
-  "author": "Seu Nome <seu.email@exemplo.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seu-usuario/portfolio-cyberpunk.git"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.6",
+    "framer-motion": "^10.16.16",
+    "react-i18next": "^13.5.0",
+    "i18next": "^23.7.8",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "react-helmet-async": "^2.0.4",
+    "react-intersection-observer": "^9.5.3",
+    "react-type-animation": "^3.2.0",
+    "lucide-react": "^0.294.0"
   },
-  "bugs": {
-    "url": "https://github.com/seu-usuario/portfolio-cyberpunk/issues"
-  },
-  "homepage": "https://github.com/seu-usuario/portfolio-cyberpunk#readme",
   "devDependencies": {
-    "http-server": "^14.1.1",
-    "live-server": "^1.2.2"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@types/styled-components": "^5.1.34",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
   }
-} 
+}

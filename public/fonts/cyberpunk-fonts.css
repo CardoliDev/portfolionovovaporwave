@@ -1,0 +1,28 @@
+/* Cyberpunk Custom Fonts */
+
+/* SD Dystopian - Personal Use Free */
+@font-face {
+  font-family: 'SD Dystopian';
+  src: url('./sd-dystopian.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Glitch Goblin - 100% Free */
+@font-face {
+  font-family: 'Glitch Goblin';
+  src: url('./glitch-goblin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Valorax - Personal Use Free */
+@font-face {
+  font-family: 'Valorax';
+  src: url('./valorax.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

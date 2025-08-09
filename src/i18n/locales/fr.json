@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Portfolio Cyberpunk - Développeur Front-End",
+    "description": "Portfolio personnel de développeur front-end avec thème cyberpunk",
+    "keywords": "front-end, développeur, cyberpunk, portfolio, développement web"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Matheus Cardoso",
+    "subtitle": [
+      "Développeur Full-Stack",
+      "Passionné de Technologie",
+      "Créateur d'Expériences Numériques"
+    ],
+    "description": "Transformer les idées en expériences numériques immersives",
+    "buttons": {
+      "contact": "Parlons-en",
+      "download": "Télécharger CV"
+    }
+  },
+  "about": {
+    "title": "À Propos de Moi",
+    "subtitle": "Qui je suis",
+    "text1": "Je suis un développeur FullStack axé sur le front-end, spécialisé dans la création d'interfaces web modernes, responsives et centrées sur l'expérience utilisateur. En back-end, j'ai de l'expérience avec Java et Node.js, développant des solutions robustes intégrées avec des API REST et des bases de données PostgreSQL. Avec des connaissances en technologies comme ReactJS, JavaScript et Bootstrap, je transforme les idées créatives en applications fonctionnelles et performantes.",
+    "text2": "Mon parcours dans le développement web a commencé il y a plus de 3 ans, et depuis lors, j'ai travaillé sur des projets stimulants qui m'ont permis d'améliorer mes compétences techniques et créatives.",
+    "stats": {
+      "projects": "Projets Terminés",
+      "experience": "Années d'Expérience",
+      "satisfaction": "Satisfaction Client"
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Mes travaux récents",
+    "project1": {
+      "title": "E-commerce Cyberpunk",
+      "description": "Plateforme e-commerce avec design cyberpunk, intégration de paiements et système de gestion.",
+      "tech": ["React", "Node.js", "MongoDB"]
+    },
+    "project2": {
+      "title": "Tableau de Bord Analytics",
+      "description": "Tableau de bord interactif avec visualisations de données en temps réel et graphiques animés.",
+      "tech": ["Vue.js", "D3.js", "Firebase"]
+    },
+    "project3": {
+      "title": "Interface de Jeu",
+      "description": "Interface de jeu avec éléments cyberpunk, animations fluides et système de score.",
+      "tech": ["JavaScript", "Canvas API", "WebGL"]
+    }
+  },
+  "skills": {
+    "title": "Compétences Techniques",
+    "subtitle": "Mes compétences",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Outils & Autres",
+    "frontendDesc": "Développement d'interfaces modernes et responsives",
+    "backendDesc": "Consommation d'APIs et systèmes robustes",
+    "toolsDesc": "Outils essentiels pour le développement",
+    "skillLevels": {
+      "advanced": "Avancé",
+      "intermediate": "Intermédiaire",
+      "beginner": "Débutant"
+    },
+    "technologies": "4 Technologies",
+    "toolsCount": "4 Outils",
+    "skillNames": {
+      "html": "HTML5 & CSS3",
+      "js": "JavaScript (ES6+)",
+      "react": "React.js",
+      "vue": "Vue.js",
+      "java": "Java",
+      "nodejs": "Node.js",
+      "postgresql": "PostgreSQL",
+      "postman": "Postman",
+      "git": "Git & GitHub",
+      "bootstrap": "Bootstrap",
+      "gsap": "GSAP",
+      "figma": "Figma"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Travaillons ensemble",
+    "info": {
+      "title": "Informations de Contact",
+      "description": "Je suis toujours ouvert aux nouvelles opportunités et projets intéressants. Contactez-moi pour discuter de la façon dont je peux vous aider avec votre projet.",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "location": "Localisation",
+      "locationValue": "João Pessoa, Brésil"
+    },
+    "action": {
+      "title": "Parlons-en !",
+      "description": "Prêt à transformer vos idées en réalité ? Contactez-moi et créons quelque chose d'incroyable ensemble !",
+      "button": "Démarrer Conversation WhatsApp"
+    },
+    "whatsappAvailability": {
+      "status": "🟢 En ligne sur WhatsApp",
+      "time": "Lundi à Vendredi • 9h à 18h"
+    },
+    "features": {
+      "fast": {
+        "title": "Réponse Rapide",
+        "description": "Réponse en 2 heures"
+      },
+      "chat": {
+        "title": "Chat Direct",
+        "description": "Communication instantanée"
+      },
+      "secure": {
+        "title": "100% Sécurisé",
+        "description": "Conversation privée et sécurisée"
+      }
+    },
+    "availability": {
+      "status": "Disponible pour projets",
+      "time": "Lundi à Vendredi • 9h à 18h"
+    },
+    "infoAvailability": {
+      "status": "Profil Actif",
+      "time": "Toujours connecté • Réponse rapide"
+    }
+  },
+  "footer": {
+    "copyright": "Tous droits réservés.",
+    "backToTop": "Retour en haut",
+    "brand": {
+      "tagline": "Développeur FullStack"
+    },
+    "quickLinks": {
+      "title": "Liens Rapides"
+    },
+    "madeWith": "Fait avec",
+    "coffee": "et beaucoup de ☕"
+  },
+  "loader": {
+    "messages": [
+      "Initialisation du système...",
+      "Chargement des modules...",
+      "Connexion au réseau...",
+      "Système prêt!"
+    ]
+  }
+}

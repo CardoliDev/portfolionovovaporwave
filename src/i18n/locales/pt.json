@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "title": "Portfólio Cyberpunk - Desenvolvedor Front-End",
+    "description": "Portfólio pessoal de desenvolvedor front-end com temática cyberpunk",
+    "keywords": "front-end, developer, cyberpunk, portfolio, web development"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Matheus Cardoso",
+    "subtitle": [
+      "Desenvolvedor FullStack",
+      "Entusiasta de Tecnologia",
+      "Criador de Experiências Digitais"
+    ],
+    "description": "Transformando ideias em experiências digitais imersivas",
+    "buttons": {
+      "contact": "Vamos Conversar",
+      "download": "Download CV"
+    }
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Quem sou eu",
+    "text1": "Sou um desenvolvedor FullStack com foco em front-end, especializado na criação de interfaces web modernas, responsivas e centradas na experiência do usuário. No back-end, possuo experiência com Java e Node.js, desenvolvendo soluções robustas e integradas com APIs REST e bancos de dados PostgreSQL. Com conhecimentos em tecnologias como ReactJS, JavaScript e Bootstrap, transformo ideias criativas em aplicações funcionais e de alto desempenho.",
+    "text2": "Minha jornada no desenvolvimento web começou há mais de 3 anos, e desde então tenho trabalhado em projetos desafiadores que me permitiram aprimorar minhas habilidades técnicas e criativas.",
+    "stats": {
+      "projects": "Projetos Concluídos",
+      "experience": "Anos de Experiência",
+      "satisfaction": "Satisfação do Cliente"
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Meus trabalhos recentes",
+    "project1": {
+      "title": "E-commerce Cyberpunk",
+      "description": "Plataforma de e-commerce com design cyberpunk, integração de pagamentos e sistema de gestão.",
+      "tech": ["React", "Node.js", "MongoDB"]
+    },
+    "project2": {
+      "title": "Dashboard Analytics",
+      "description": "Dashboard interativo com visualizações de dados em tempo real e gráficos animados.",
+      "tech": ["Vue.js", "D3.js", "Firebase"]
+    },
+    "project3": {
+      "title": "Game Interface",
+      "description": "Interface de jogo com elementos cyberpunk, animações fluidas e sistema de pontuação.",
+      "tech": ["JavaScript", "Canvas API", "WebGL"]
+    }
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "subtitle": "Minhas competências",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Ferramentas & Outros",
+    "frontendDesc": "Desenvolvimento de interfaces modernas e responsivas",
+    "backendDesc": "Consumo de API's e sistemas robustos",
+    "toolsDesc": "Ferramentas essenciais para desenvolvimento",
+    "skillLevels": {
+      "advanced": "Avançado",
+      "intermediate": "Intermediário",
+      "beginner": "Iniciante"
+    },
+    "technologies": "4 Tecnologias",
+    "toolsCount": "4 Ferramentas",
+    "skillNames": {
+      "html": "HTML5 & CSS3",
+      "js": "JavaScript (ES6+)",
+      "react": "React.js",
+      "vue": "Vue.js",
+      "java": "Java",
+      "nodejs": "Node.js",
+      "postgresql": "PostgreSQL",
+      "postman": "Postman",
+      "git": "Git & GitHub",
+      "bootstrap": "Bootstrap",
+      "gsap": "GSAP",
+      "figma": "Figma"
+    }
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Vamos trabalhar juntos",
+    "info": {
+      "title": "Informações de Contato",
+      "description": "Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo para discutirmos como posso ajudar no seu projeto.",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "location": "Localização",
+      "locationValue": "João Pessoa, Brasil"
+    },
+    "action": {
+      "title": "Vamos Conversar!",
+      "description": "Pronto para transformar suas ideias em realidade? Entre em contato e vamos criar algo incrível juntos!",
+      "button": "Iniciar Conversa no WhatsApp"
+    },
+    "whatsappAvailability": {
+      "status": "🟢 Online no WhatsApp",
+      "time": "Segunda a Sexta • 9h às 18h"
+    },
+    "features": {
+      "fast": {
+        "title": "Resposta Rápida",
+        "description": "Resposta em até 2 horas"
+      },
+      "chat": {
+        "title": "Conversa Direta",
+        "description": "Comunicação instantânea"
+      },
+      "secure": {
+        "title": "100% Seguro",
+        "description": "Conversa privada e segura"
+      }
+    },
+    "availability": {
+      "status": "Disponível para projetos",
+      "time": "Segunda a Sexta • 9h às 18h"
+    },
+    "infoAvailability": {
+      "status": "Perfil Ativo",
+      "time": "Sempre conectado • Resposta rápida"
+    }
+  },
+  "footer": {
+    "copyright": "Todos os direitos reservados.",
+    "backToTop": "Voltar ao topo",
+    "brand": {
+      "tagline": "Desenvolvedor FullStack"
+    },
+    "quickLinks": {
+      "title": "Links Rápidos"
+    },
+    "madeWith": "Feito com",
+    "coffee": "e muito ☕"
+  },
+  "loader": {
+    "messages": [
+      "Inicializando sistema...",
+      "Carregando módulos...",
+      "Conectando à rede...",
+      "Sistema pronto!"
+    ]
+  }
+}
