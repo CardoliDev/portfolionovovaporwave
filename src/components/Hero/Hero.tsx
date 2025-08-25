@@ -475,8 +475,17 @@ export const Hero: React.FC = () => {
   const handleDownloadCV = () => {
     // Create a temporary link to download the CV
     const link = document.createElement('a');
-    link.href = '/assets/curriculo.pdf';
-    link.download = 'Matheus_Cardoso_CV.pdf';
+    
+    // Choose CV file based on current language
+    if (i18n.language === 'pt') {
+      link.href = '/assets/CV-Matheus-Pt-Br.pdf';
+      link.download = 'CV-Matheus-Pt-Br.pdf';
+    } else {
+      // For French (fr) and English (en)
+      link.href = '/assets/CV-Matheus-En.pdf';
+      link.download = 'CV-Matheus-En.pdf';
+    }
+    
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
