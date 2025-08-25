@@ -19,8 +19,13 @@ const BackToTopContainer = styled(motion.button)`
   align-items: center;
   justify-content: center;
   box-shadow: ${({ theme }) => theme.shadows.large};
-  z-index: 1000;
+  z-index: 1001;
   overflow: hidden;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    bottom: 1.5rem;
+    right: 1rem;
+  }
   
   &:hover {
     box-shadow: ${({ theme }) => theme.shadows.neon};
@@ -58,7 +63,12 @@ const ParticleContainer = styled.div`
   width: 60px;
   height: 60px;
   pointer-events: none;
-  z-index: 999;
+  z-index: 1000;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    bottom: 1.5rem;
+    right: 1rem;
+  }
 `;
 
 const Particle = styled(motion.div)<{ delay: number }>`
